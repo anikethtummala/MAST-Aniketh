@@ -1,0 +1,62 @@
+MAS FINAL ANSWER: : \(\frac{89}{128}\)TRUE FINAL ANSWER: $221,$8$---------TRUE SOLUTION: Let $S=\sin ^{6} 1^{\circ}+\sin ^{6} 2^{\circ}+\sin ^{6} 3^{\circ}+\cdots+\sin ^{6} 87^{\circ}+\sin ^{6} 88^{\circ}+\sin ^{6} 89^{\circ}$.
+
+Since $\sin \theta=\cos \left(90^{\circ}-\theta\right)$, then $\sin ^{6} \theta=\cos ^{6}\left(90^{\circ}-\theta\right)$, and so
+
+$$
+\begin{aligned}
+S= & \sin ^{6} 1^{\circ}+\sin ^{6} 2^{\circ}+\cdots+\sin ^{6} 44^{\circ}+\sin ^{6} 45^{\circ} \\
+& \quad+\cos ^{6}\left(90^{\circ}-46^{\circ}\right)+\cos ^{6}\left(90^{\circ}-47^{\circ}\right)+\cdots+\cos ^{6}\left(90^{\circ}-89^{\circ}\right) \\
+= & \sin ^{6} 1^{\circ}+\sin ^{6} 2^{\circ}+\cdots+\sin ^{6} 44^{\circ}+\sin ^{6} 45^{\circ}+\cos ^{6} 44^{\circ}+\cos ^{6} 43^{\circ}+\cdots+\cos ^{6} 1^{\circ} \\
+= & \left(\sin ^{6} 1^{\circ}+\cos ^{6} 1^{\circ}\right)+\left(\sin ^{6} 2^{\circ}+\cos ^{6} 2^{\circ}\right)+\cdots+\left(\sin ^{6} 44^{\circ}+\cos ^{6} 44^{\circ}\right)+\sin ^{6} 45^{\circ}
+\end{aligned}
+$$
+
+Since $\sin 45^{\circ}=\frac{1}{\sqrt{2}}$, then $\sin ^{6} 45^{\circ}=\frac{1}{2^{3}}=\frac{1}{8}$.
+
+Also, since
+
+$$
+x^{3}+y^{3}=(x+y)\left(x^{2}-x y+y^{2}\right)=(x+y)\left((x+y)^{2}-3 x y\right)
+$$
+
+then substituting $x=\sin ^{2} \theta$ and $y=\cos ^{2} \theta$, we obtain
+
+$$
+\begin{aligned}
+x^{3}+y^{3} & =(x+y)\left((x+y)^{2}-3 x y\right) \\
+\sin ^{6} \theta+\cos ^{6} \theta & =\left(\sin ^{2} \theta+\cos ^{2} \theta\right)\left(\left(\sin ^{2} \theta+\cos ^{2} \theta\right)^{2}-3 \sin ^{2} \theta \cos ^{2} \theta\right) \\
+\sin ^{6} \theta+\cos ^{6} \theta & =1\left(1-3 \sin ^{2} \theta \cos ^{2} \theta\right)
+\end{aligned}
+$$
+
+since $\sin ^{2} \theta+\cos ^{2} \theta=1$.
+
+Therefore,
+
+$$
+\begin{aligned}
+S & =\left(\sin ^{6} 1^{\circ}+\cos ^{6} 1^{\circ}\right)+\left(\sin ^{6} 2^{\circ}+\cos ^{6} 2^{\circ}\right)+\cdots+\left(\sin ^{6} 44^{\circ}+\cos ^{6} 44^{\circ}\right)+\sin ^{6} 45^{\circ} \\
+& =\left(1-3 \sin ^{2} 1^{\circ} \cos ^{2} 1^{\circ}\right)+\left(1-3 \sin ^{2} 2^{\circ} \cos ^{2} 2^{\circ}\right)+\cdots+\left(1-3 \sin ^{2} 44^{\circ} \cos ^{2} 44^{\circ}\right)+\frac{1}{8} \\
+& =44-\left(3 \sin ^{2} 1^{\circ} \cos ^{2} 1^{\circ}+3 \sin ^{2} 2^{\circ} \cos ^{2} 2^{\circ}+\cdots+3 \sin ^{2} 44^{\circ} \cos ^{2} 44^{\circ}\right)+\frac{1}{8} \\
+& =\frac{353}{8}-\frac{3}{4}\left(4 \sin ^{2} 1^{\circ} \cos ^{2} 1^{\circ}+4 \sin ^{2} 2^{\circ} \cos ^{2} 2^{\circ}+\cdots+4 \sin ^{2} 44^{\circ} \cos ^{2} 44^{\circ}\right)
+\end{aligned}
+$$
+
+Since $\sin 2 \theta=2 \sin \theta \cos \theta$, then $4 \sin ^{2} \theta \cos ^{2} \theta=\sin ^{2} 2 \theta$, which gives
+
+$$
+\begin{aligned}
+S & =\frac{353}{8}-\frac{3}{4}\left(4 \sin ^{2} 1^{\circ} \cos ^{2} 1^{\circ}+4 \sin ^{2} 2^{\circ} \cos ^{2} 2^{\circ}+\cdots+4 \sin ^{2} 44^{\circ} \cos ^{2} 44^{\circ}\right) \\
+& =\frac{353}{8}-\frac{3}{4}\left(\sin ^{2} 2^{\circ}+\sin ^{2} 4^{\circ}+\cdots+\sin ^{2} 88^{\circ}\right) \\
+& =\frac{353}{8}-\frac{3}{4}\left(\sin ^{2} 2^{\circ}+\sin ^{2} 4^{\circ}+\cdots+\sin ^{2} 44^{\circ}+\sin ^{2} 46^{\circ}+\cdots+\sin ^{2} 86^{\circ}+\sin ^{2} 88^{\circ}\right) \\
+& =\frac{353}{8}-\frac{3}{4}\left(\sin ^{2} 2^{\circ}+\sin ^{2} 4^{\circ}+\cdots+\sin ^{2} 44^{\circ}+\right. \\
+& \left.\cos ^{2}\left(90^{\circ}-46^{\circ}\right)+\cdots+\cos ^{2}\left(90^{\circ}-86^{\circ}\right)+\cos ^{2}\left(90^{\circ}-88^{\circ}\right)\right) \\
+& =\frac{353}{8}-\frac{3}{4}\left(\sin ^{2} 2^{\circ}+\sin ^{2} 4^{\circ}+\cdots+\sin ^{2} 44^{\circ}+\cos ^{2} 44^{\circ}+\cdots+\cos ^{2} 4^{\circ}+\cos ^{2} 2^{\circ}\right) \\
+& =\frac{353}{8}-\frac{3}{4}\left(\left(\sin ^{2} 2^{\circ}+\cos ^{2} 2^{\circ}\right)+\left(\sin ^{2} 4^{\circ}+\cos ^{2} 4^{\circ}\right)+\cdots+\left(\sin ^{2} 44^{\circ}+\cos ^{2} 44^{\circ}\right)\right) \\
+& =\frac{353}{8}-\frac{3}{4}(22) \quad\left(\operatorname{since} \sin ^{2} \theta+\cos ^{2} \theta=1\right) \\
+& =\frac{353}{8}-\frac{132}{8} \\
+& =\frac{221}{8}
+\end{aligned}
+$$
+
+Therefore, since $S=\frac{m}{n}$, then $m=221$ and $n=8$ satisfy the required equation.

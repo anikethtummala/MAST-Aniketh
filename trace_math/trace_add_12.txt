@@ -1,0 +1,26 @@
+MAS FINAL ANSWER: : The coordinates of the point of intersection are \((4, \log_{10}(2))\).TRUE FINAL ANSWER: $(4, \log _{10} 2)$---------TRUE SOLUTION: The intersection takes place where,
+
+$$
+\begin{aligned}
+& \log _{10}(x-2)=1-\log _{10}(x+1) \\
+& \log _{10}(x-2)+\log _{10}(x+1)=1 \\
+& \log _{10}\left(x^{2}-x-2\right)=1
+\end{aligned}
+$$
+
+
+
+$$
+\begin{aligned}
+& x^{2}-x-2=10 \\
+& x^{2}-x-12=0 \\
+& (x-4)(x+3)=0 \\
+& x=4 \text { or }-3
+\end{aligned}
+$$
+
+For $x=-3, y$ is not defined.
+
+For $x=4, y=\log _{10} 2 \doteq 0.3$.
+
+The graphs therefore intersect at $\left(4, \log _{10} 2\right)$.

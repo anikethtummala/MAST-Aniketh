@@ -1,0 +1,21 @@
+MAS FINAL ANSWER: : 50TRUE FINAL ANSWER: $\frac{100!}{2^{50}}$---------TRUE SOLUTION: Non-existence of a larger table. Let us consider some fixed row in the table, and let us replace (for $k=1,2, \ldots, 50$ ) each of two numbers $2 k-1$ and $2 k$ respectively by the symbol $x_{k}$. The resulting pattern is an arrangement of 50 symbols $x_{1}, x_{2}, \ldots, x_{50}$, where every symbol occurs exactly twice. Note that there are $N=100 ! / 2^{50}$ distinct patterns $P_{1}, \ldots, P_{N}$.
+
+If two rows $r \neq s$ in the table have the same pattern $P_{i}$, then $|T(r, c)-T(s, c)| \leqslant 1$ holds for all columns $c$. As this violates property (ii) in the problem statement, different rows have different patterns. Hence there are at most $N=100 ! / 2^{50}$ rows.
+
+Existence of a table with $N$ rows. We construct the table by translating every pattern $P_{i}$ into a corresponding row with the numbers $1,2, \ldots, 100$. We present a procedure that inductively replaces the symbols by numbers. The translation goes through steps $k=1,2, \ldots, 50$ in increasing order and at step $k$ replaces the two occurrences of symbol $x_{k}$ by $2 k-1$ and $2 k$.
+
+- The left occurrence of $x_{1}$ is replaced by 1 , and its right occurrence is replaced by 2 .
+- For $k \geqslant 2$, we already have the number $2 k-2$ somewhere in the row, and now we are looking for the places for $2 k-1$ and $2 k$. We make the three numbers $2 k-2,2 k-1,2 k$ show up (ordered from left to right) either in the order $2 k-2,2 k-1,2 k$, or as $2 k, 2 k-2,2 k-1$, or as $2 k-1,2 k, 2 k-2$. This is possible, since the number $2 k-2$ has been placed in the preceding step, and shows up before / between / after the two occurrences of the symbol $x_{k}$.
+
+We claim that the $N$ rows that result from the $N$ patterns yield a table with the desired property (ii). Indeed, consider the $r$-th and the $s$-th row $(r \neq s)$, which by construction result from patterns $P_{r}$ and $P_{s}$. Call a symbol $x_{i}$ aligned, if it occurs in the same two columns in $P_{r}$ and in $P_{s}$. Let $k$ be the largest index, for which symbol $x_{k}$ is not aligned. Note that $k \geqslant 2$. Consider the column $c^{\prime}$ with $T\left(r, c^{\prime}\right)=2 k$ and the column $c^{\prime \prime}$ with $T\left(s, c^{\prime \prime}\right)=2 k$. Then $T\left(r, c^{\prime \prime}\right) \leqslant 2 k$ and $T\left(s, c^{\prime}\right) \leqslant 2 k$, as all symbols $x_{i}$ with $i \geqslant k+1$ are aligned.
+
+- If $T\left(r, c^{\prime \prime}\right) \leqslant 2 k-2$, then $\left|T\left(r, c^{\prime \prime}\right)-T\left(s, c^{\prime \prime}\right)\right| \geqslant 2$ as desired.
+- If $T\left(s, c^{\prime}\right) \leqslant 2 k-2$, then $\left|T\left(r, c^{\prime}\right)-T\left(s, c^{\prime}\right)\right| \geqslant 2$ as desired.
+- If $T\left(r, c^{\prime \prime}\right)=2 k-1$ and $T\left(s, c^{\prime}\right)=2 k-1$, then the symbol $x_{k}$ is aligned; contradiction.
+
+In the only remaining case we have $c^{\prime}=c^{\prime \prime}$, so that $T\left(r, c^{\prime}\right)=T\left(s, c^{\prime}\right)=2 k$ holds. Now let us consider the columns $d^{\prime}$ and $d^{\prime \prime}$ with $T\left(r, d^{\prime}\right)=2 k-1$ and $T\left(s, d^{\prime \prime}\right)=2 k-1$. Then $d \neq d^{\prime \prime}$ (as the symbol $x_{k}$ is not aligned), and $T\left(r, d^{\prime \prime}\right) \leqslant 2 k-2$ and $T\left(s, d^{\prime}\right) \leqslant 2 k-2$ (as all symbols $x_{i}$ with $i \geqslant k+1$ are aligned).
+
+- If $T\left(r, d^{\prime \prime}\right) \leqslant 2 k-3$, then $\left|T\left(r, d^{\prime \prime}\right)-T\left(s, d^{\prime \prime}\right)\right| \geqslant 2$ as desired.
+- If $T\left(s, c^{\prime}\right) \leqslant 2 k-3$, then $\left|T\left(r, d^{\prime}\right)-T\left(s, d^{\prime}\right)\right| \geqslant 2$ as desired.
+
+In the only remaining case we have $T\left(r, d^{\prime \prime}\right)=2 k-2$ and $T\left(s, d^{\prime}\right)=2 k-2$. Now the row $r$ has the numbers $2 k-2,2 k-1,2 k$ in the three columns $d^{\prime}, d^{\prime \prime}, c^{\prime}$. As one of these triples violates the ordering property of $2 k-2,2 k-1,2 k$, we have the final contradiction.

@@ -1,0 +1,29 @@
+MAS FINAL ANSWER: : 4/7**
+
+The probability that the last two marbles Akshan removes are blue is \(\frac{4}{7}\).TRUE FINAL ANSWER: $\frac{10}{21}$---------TRUE SOLUTION: Each possible order in which Akshan removes the marbles corresponds to a sequence of 9 colours, 3 of which are red and 6 of which are blue.
+
+We write these as sequences of 3 R's and 6 B's.
+
+Since are told that the first marble is red and the third is blue, we would like to consider all sequences of the form
+
+$$
+R \_B\_\_\_\_\_\_
+$$
+
+The 7 blanks must be filled with the remaining 2 R's and 5 B's.
+
+There are $\left(\begin{array}{l}7 \\ 2\end{array}\right)=\frac{7 \cdot 6}{2}=21$ ways of doing this, because 2 of the 7 blanks must be chosen in which to place the R's. (We could count these 21 ways directly by working systematically through the possible pairs of blanks.)
+
+Of these 21 ways, some have the last two marbles being blue.
+
+These correspond to the sequences of the form
+
+$$
+R \_B \_\_\_\_ B B
+$$
+
+In these sequences, the 5 blanks must be filled with the remaining $2 \mathrm{R}$ 's and 3 B's.
+
+There are $\left(\begin{array}{l}5 \\ 2\end{array}\right)=\frac{5 \cdot 4}{2}=10$ ways of doing this, because 2 of the 5 blanks must be chosen in which to place the R's.
+
+Therefore, 10 of the 21 possible sequences end in two B's, and so the probability that the last two marbles removed are blue is $\frac{10}{21}$.

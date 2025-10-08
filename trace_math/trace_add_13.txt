@@ -1,0 +1,49 @@
+MAS FINAL ANSWER: : 4044TRUE FINAL ANSWER: 3---------TRUE SOLUTION: We solve the problem for $n$-tuples for any $n \geqslant 3$ : we will show that the answer is $s=3$, regardless of the value of $n$.
+
+First, let us briefly introduce some notation. For an $n$-tuple $\mathbf{v}$, we will write $\mathbf{v}_{i}$ for its $i$-th coordinate (where $1 \leqslant i \leqslant n$ ). For a positive integer $n$ and a tuple $\mathbf{v}$ we will denote by $n \cdot \mathbf{v}$ the tuple obtained by applying addition on $\mathbf{v}$ with itself $n$ times. Furthermore, we denote by $\mathbf{e}(i)$ the tuple which has $i$-th coordinate equal to one and all the other coordinates equal to zero. We say that a tuple is positive if all its coordinates are positive, and negative if all its coordinates are negative.
+
+We will show that three tuples suffice, and then that two tuples do not suffice.
+
+**Three tuples suffice.** Write $\mathbf{c}$ for the constant-valued tuple $\mathbf{c}=(-1, \ldots,-1)$.
+
+We note that it is enough for Lucy to be able to make the tuples $\mathbf{e}(1), \ldots, \mathbf{e}(n)$, $\mathbf{c}$; from those any other tuple $\mathbf{v}$ can be made as follows. First we choose some positive integer $k$ such that $k+\mathbf{v}_{i}>0$ for all $i$. Then, by adding a positive number of copies of $\mathbf{c}, \mathbf{e}(1), \ldots, \mathbf{e}(n)$, she can make
+
+$$
+k \mathbf{c}+\left(k+\mathbf{v}_{1}\right) \cdot \mathbf{e}(1)+\cdots+\left(k+\mathbf{v}_{n}\right) \cdot \mathbf{e}(n)
+$$
+
+which we claim is equal to $\mathbf{v}$. Indeed, this can be checked by comparing coordinates: the $i$-th coordinate of the right-hand side is $-k+\left(k+\mathbf{v}_{i}\right)=\mathbf{v}_{i}$ as needed.
+
+Lucy can take her three starting tuples to be $\mathbf{a}, \mathbf{b}$ and $\mathbf{c}$, such that $\mathbf{a}_{i}=-i^{2}, \mathbf{b}_{i}=i$ and $\mathbf{c}=-1$ (as above).
+
+For any $1 \leqslant j \leqslant n$, write $\mathbf{d}(j)$ for the tuple $2 \cdot \mathbf{a}+4 j \cdot \mathbf{b}+\left(2 j^{2}-1\right) \cdot \mathbf{c}$, which Lucy can make by adding together $\mathbf{a}, \mathbf{b}$ and $\mathbf{c}$ repeatedly. This has $i$ th term
+
+$$
+\begin{aligned}
+\mathbf{d}(j)_{i} & =2 \mathbf{a}_{i}+4 j \mathbf{b}_{i}+\left(2 j^{2}-1\right) \mathbf{c}_{i} \\
+& =-2 i^{2}+4 i j-\left(2 j^{2}-1\right) \\
+& =1-2(i-j)^{2}
+\end{aligned}
+$$
+
+This is 1 if $j=i$, and at most -1 otherwise. Hence Lucy can produce the tuple $\mathbf{1}=(1, \ldots, 1)$ as $\mathbf{d}(1) \vee \cdots \vee \mathbf{d}(n)$.
+
+She can then produce the constant tuple $\mathbf{0}=(0, \ldots, 0)$ as $\mathbf{1}+\mathbf{c}$, and for any $1 \leqslant j \leqslant n$ she can then produce the tuple $\mathbf{e}(j)$ as $\mathbf{d}(j) \vee \mathbf{0}$. Since she can now produce $\mathbf{e}(1), \ldots, \mathbf{e}(n)$ and already had $\mathbf{c}$, she can (as we argued earlier) produce any integer-valued tuple.
+
+
+
+**Two tuples do not suffice.** We start with an observation: Let $a$ be a non-negative real number and suppose that two tuples $\mathbf{v}$ and $\mathbf{w}$ satisfy $\mathbf{v}_{j} \geqslant a \mathbf{v}_{k}$ and $\mathbf{w}_{j} \geqslant a \mathbf{w}_{k}$ for some $1 \leqslant j, k \leqslant n$. Then we claim that the same inequality holds for $\mathbf{v}+\mathbf{w}$ and $\mathbf{v} \vee \mathbf{w}$ : Indeed, the property for the sum is verified by an easy computation:
+
+$$
+(\mathbf{v}+\mathbf{w})_{j}=\mathbf{v}_{j}+\mathbf{w}_{j} \geqslant a \mathbf{v}_{k}+a \mathbf{w}_{k}=a(\mathbf{v}+\mathbf{w})_{k}
+$$
+
+For the second operation, we denote by $\mathbf{m}$ the tuple $\mathbf{v} \vee \mathbf{w}$. Then $\mathbf{m}_{j} \geqslant \mathbf{v}_{j} \geqslant a \mathbf{v}_{k}$ and $\mathbf{m}_{j} \geqslant \mathbf{w}_{j} \geqslant a \mathbf{w}_{k}$. Since $\mathbf{m}_{k}=\mathbf{v}_{k}$ or $\mathbf{m}_{k}=\mathbf{w}_{k}$, the observation follows.
+
+As a consequence of this observation we have that if all starting tuples satisfy such an inequality, then all generated tuples will also satisfy it, and so we would not be able to obtain every integer-valued tuple.
+
+Let us now prove that Lucy needs at least three starting tuples. For contradiction, let us suppose that Lucy started with only two tuples $\mathbf{v}$ and $\mathbf{w}$. We are going to distinguish two cases. In the first case, suppose we can find a coordinate $i$ such that $\mathbf{v}_{i}, \mathbf{w}_{i} \geqslant 0$. Both operations preserve the sign, thus we can not generate any tuple that has negative $i$-th coordinate. Similarly for $\mathbf{v}_{i}, \mathbf{w}_{i} \leqslant 0$.
+
+Suppose the opposite, i.e., for every $i$ we have either $\mathbf{v}_{i}>0>\mathbf{w}_{i}$, or $\mathbf{v}_{i}<0<\mathbf{w}_{i}$. Since we assumed that our tuples have at least three coordinates, by pigeonhole principle there exist two coordinates $j \neq k$ such that $\mathbf{v}_{j}$ has the same sign as $\mathbf{v}_{k}$ and $\mathbf{w}_{j}$ has the same sign as $\mathbf{w}_{k}$ (because there are only two possible combinations of signs).
+
+Without loss of generality assume that $\mathbf{v}_{j}, \mathbf{v}_{k}>0$ and $\mathbf{w}_{j}, \mathbf{w}_{k}<0$. Let us denote the positive real number $\mathbf{v}_{j} / \mathbf{v}_{k}$ by $a$. If $\mathbf{w}_{j} / \mathbf{w}_{k} \leqslant a$, then both inequalities $\mathbf{v}_{j} \geqslant a \mathbf{v}_{k}$ and $\mathbf{w}_{j} \geqslant a \mathbf{w}_{k}$ are satisfied. On the other hand, if $\mathbf{w}_{j} / \mathbf{w}_{k} \leqslant a$, then both $\mathbf{v}_{k} \geqslant(1 / a) \mathbf{v}_{j}$ and $\mathbf{w}_{k} \geqslant(1 / a) \mathbf{w}_{j}$ are satisfied. In either case, we have found the desired inequality satisfied by both starting tuples, a contradiction with the observation above.

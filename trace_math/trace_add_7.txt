@@ -1,0 +1,16 @@
+MAS FINAL ANSWER: \( k = n^2 \)TRUE FINAL ANSWER: $2 n$---------TRUE SOLUTION: We first construct an example of marking $2 n$ cells satisfying the requirement. Label the rows and columns $1,2, \ldots, 2 n$ and label the cell in the $i$-th row and the $j$-th column $(i, j)$.
+
+For $i=1,2, \ldots, n$, we mark the cells $(i, i)$ and $(i, i+1)$. We claim that the required partition exists and is unique. The two diagonals of the board divide the board into four regions. Note that the domino covering cell $(1,1)$ must be vertical. This in turn shows that each domino covering $(2,2),(3,3), \ldots,(n, n)$ is vertical. By induction, the dominoes in the left region are all vertical. By rotational symmetry, the dominoes in the bottom region are horizontal, and so on. This shows that the partition exists and is unique.
+<img_3889>
+
+It remains to show that this value of $k$ is the smallest possible. Assume that only $k<2 n$ cells are marked, and there exists a partition $P$ satisfying the requirement. It suffices to show there exists another desirable partition distinct from $P$. Let $d$ be the main diagonal of the board.
+
+Construct the following graph with edges of two colours. Its vertices are the cells of the board. Connect two vertices with a red edge if they belong to the same domino of $P$. Connect two vertices with a blue edge if their reflections in $d$ are connected by a red edge. It is possible that two vertices are connected by edges of both colours. Clearly, each vertex has both red and blue degrees equal to 1 . Thus the graph splits into cycles where the colours of edges in each cycle alternate (a cycle may have length 2).
+
+Consider any cell $c$ lying on the diagonal $d$. Its two edges are symmetrical with respect to $d$. Thus they connect $c$ to different cells. This shows $c$ belongs to a cycle $C(c)$ of length at least 4. Consider a part of this cycle $c_{0}, c_{1}, \ldots, c_{m}$ where $c_{0}=c$ and $m$ is the least positive integer such that $c_{m}$ lies on $d$. Clearly, $c_{m}$ is distinct from $c$. From the construction, the path symmetrical to this with respect to $d$ also lies in the graph, and so these paths together form $C(c)$. Hence, $C(c)$ contains exactly two cells from $d$. Then all $2 n$ cells in $d$ belong to $n$ cycles $C_{1}, C_{2}, \ldots, C_{n}$, each has length at least 4.
+
+By the Pigeonhole Principle, there exists a cycle $C_{i}$ containing at most one of the $k$ marked cells. We modify $P$ as follows. We remove all dominoes containing the vertices of $C_{i}$, which
+
+
+
+correspond to the red edges of $C_{i}$. Then we put the dominoes corresponding to the blue edges of $C_{i}$. Since $C_{i}$ has at least 4 vertices, the resultant partition $P^{\prime}$ is different from $P$. Clearly, no domino in $P^{\prime}$ contains two marked cells as $C_{i}$ contains at most one marked cell. This shows the partition is not unique and hence $k$ cannot be less than $2 n$.

@@ -1,0 +1,22 @@
+MAS FINAL ANSWER: **: \( k < -5 \)TRUE FINAL ANSWER: (-\infty,-5)---------TRUE SOLUTION: Since each of these two graphs is symmetric about the $y$-axis (i.e. both are even functions), then we only need to find $k$ so that there are no points of intersection with $x \geq 0$.
+
+So let $x \geq 0$ and consider the intersection between $y=2 x+k$ and $y=x^{2}-4$.
+
+Equating, we have, $2 x+k=x^{2}-4$.
+
+Rearranging, we want $x^{2}-2 x-(k+4)=0$ to have no solutions.
+
+
+
+For no solutions, the discriminant is negative, i.e.
+
+$$
+\begin{aligned}
+20+4 k & <0 \\
+4 k & <-20 \\
+k & <-5 .
+\end{aligned}
+$$
+
+So $y=x^{2}-4$ and $y=2|x|+k$ have no intersection points when $k<-5$.
+
