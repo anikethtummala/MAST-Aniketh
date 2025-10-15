@@ -1,4 +1,8 @@
-MAS FINAL ANSWER: : 50TRUE FINAL ANSWER: $\frac{100!}{2^{50}}$---------TRUE SOLUTION: Non-existence of a larger table. Let us consider some fixed row in the table, and let us replace (for $k=1,2, \ldots, 50$ ) each of two numbers $2 k-1$ and $2 k$ respectively by the symbol $x_{k}$. The resulting pattern is an arrangement of 50 symbols $x_{1}, x_{2}, \ldots, x_{50}$, where every symbol occurs exactly twice. Note that there are $N=100 ! / 2^{50}$ distinct patterns $P_{1}, \ldots, P_{N}$.
+MAS FINAL ANSWER: 51
+TRUE FINAL ANSWER: $\frac{100!}{2^{50}}$
+
+---------
+TRUE SOLUTION: Non-existence of a larger table. Let us consider some fixed row in the table, and let us replace (for $k=1,2, \ldots, 50$ ) each of two numbers $2 k-1$ and $2 k$ respectively by the symbol $x_{k}$. The resulting pattern is an arrangement of 50 symbols $x_{1}, x_{2}, \ldots, x_{50}$, where every symbol occurs exactly twice. Note that there are $N=100 ! / 2^{50}$ distinct patterns $P_{1}, \ldots, P_{N}$.
 
 If two rows $r \neq s$ in the table have the same pattern $P_{i}$, then $|T(r, c)-T(s, c)| \leqslant 1$ holds for all columns $c$. As this violates property (ii) in the problem statement, different rows have different patterns. Hence there are at most $N=100 ! / 2^{50}$ rows.
 

@@ -1,0 +1,5 @@
+MAS FINAL ANSWER: 43
+TRUE FINAL ANSWER: 37
+
+---------
+TRUE SOLUTION: If the polygon is inscribed in a circle, then the arc $\overparen{A_{1} A_{13}}$ intercepted by $\angle A_{1} A_{20} A_{13}$ has measure $12\left(360^{\circ} / n\right)$, and thus $\mathrm{m} \angle A_{1} A_{20} A_{13}=6\left(360^{\circ} / n\right)$. If $6(360 / n)<60$, then $n>6(360) / 60=$ 36. Thus the smallest value of $n$ is $\mathbf{3 7}$.

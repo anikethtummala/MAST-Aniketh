@@ -1,4 +1,8 @@
-MAS FINAL ANSWER: : \(\frac{17\sqrt{3}}{40}\)TRUE FINAL ANSWER: $\frac{9 \sqrt{3}}{20}$---------TRUE SOLUTION: There are 6 triangles of side lengths $1,1, \sqrt{3} ; 2$ equilateral triangles of side length $\sqrt{3}$; and 12 triangles of side lengths $1, \sqrt{3}, 2$. One triangle of each type is shown in the diagram below.
+MAS FINAL ANSWER: : The average area of the 20 triangles is \(\frac{\sqrt{3}}{2}\).
+TRUE FINAL ANSWER: $\frac{9 \sqrt{3}}{20}$
+
+---------
+TRUE SOLUTION: There are 6 triangles of side lengths $1,1, \sqrt{3} ; 2$ equilateral triangles of side length $\sqrt{3}$; and 12 triangles of side lengths $1, \sqrt{3}, 2$. One triangle of each type is shown in the diagram below.
 <img_3233>
 
 Each triangle in the first set has area $\sqrt{3} / 4$; each triangle in the second set has area $3 \sqrt{3} / 4$; and each triangle in the third set has area $\sqrt{3} / 2$. The average is

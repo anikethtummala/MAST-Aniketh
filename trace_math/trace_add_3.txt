@@ -1,4 +1,8 @@
-MAS FINAL ANSWER: : The function \( f(y) = y \) for all \( y \in \mathbb{Q}_{>0} \).TRUE FINAL ANSWER: $f(x)=1$---------TRUE SOLUTION: Take any $a, b \in \mathbb{Q}_{>0}$. By substituting $x=f(a), y=b$ and $x=f(b), y=a$ into $(*)$ we get
+MAS FINAL ANSWER: : The functions are \( f(x) = 1 \) and \( f(x) = x \).
+TRUE FINAL ANSWER: $f(x)=1$
+
+---------
+TRUE SOLUTION: Take any $a, b \in \mathbb{Q}_{>0}$. By substituting $x=f(a), y=b$ and $x=f(b), y=a$ into $(*)$ we get
 
 $$
 f(f(a))^{2} f(b)=f\left(f(a)^{2} f(b)^{2}\right)=f(f(b))^{2} f(a)

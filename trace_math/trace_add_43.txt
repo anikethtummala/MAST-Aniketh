@@ -1,0 +1,5 @@
+MAS FINAL ANSWER: 110.649
+TRUE FINAL ANSWER: 111
+
+---------
+TRUE SOLUTION: Let $A C=b$ and $B C=a$. Then $a^{2}+b^{2}=1600$ and $|a-b|=T-1$. Squaring the second equation yields $a^{2}+b^{2}-2 a b=(T-1)^{2}$, so $1600-2 a b=(T-1)^{2}$. Hence the area of the triangle is $\frac{1}{2} a b=\frac{1600-(T-1)^{2}}{4}=400-\frac{(T-1)^{2}}{4}$ or $400-\left(\frac{T-1}{2}\right)^{2}$, which for $T=35$ yields $400-289=\mathbf{1 1 1}$.

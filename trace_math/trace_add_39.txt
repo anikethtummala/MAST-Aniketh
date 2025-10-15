@@ -1,0 +1,5 @@
+MAS FINAL ANSWER: ** \( n = 10 \).
+TRUE FINAL ANSWER: 8
+
+---------
+TRUE SOLUTION: Note that if $p$ is prime, then $\operatorname{gcd}\left(p^{3}, p !\right)=p$. A good strategy is to look for values of $n$ with several (not necessarily distinct) prime factors so that $n^{3}$ and $n$ ! will have many factors in common. For example, if $n=6, n^{3}=216=2^{3} \cdot 3^{3}$ and $n !=720=2^{4} \cdot 3^{2} \cdot 5$, so $\operatorname{gcd}(216,720)=2^{3} \cdot 3^{2}=72$. Because 7 is prime, try $n=8$. Notice that $8^{3}=2^{9}$ while $8 !=2^{7} \cdot 3^{2} \cdot 5 \cdot 7$. Thus $\operatorname{gcd}(512,8 !)=2^{7}=128>100$, hence the smallest value of $n$ is $\mathbf{8}$.

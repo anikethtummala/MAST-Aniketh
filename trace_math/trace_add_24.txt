@@ -1,0 +1,16 @@
+MAS FINAL ANSWER: \(\frac{\sqrt{3}}{8}\)
+TRUE FINAL ANSWER: $\frac{\sqrt{3}}{32}$
+
+---------
+TRUE SOLUTION: Draw auxiliary segment $\overline{O B}$, as shown in the diagram below.
+
+<img_4031>
+
+Triangle $O A B$ is equilateral, so $\mathrm{m} \angle O A B=60^{\circ}$. Then $\triangle M A P$ is a $30^{\circ}-60^{\circ}-90^{\circ}$ triangle with hypotenuse $A M=1 / 2$. Thus $A P=1 / 4$ and $M P=\sqrt{3} / 4$, so
+
+$$
+\begin{aligned}
+{[M A P] } & =\frac{1}{2}\left(\frac{1}{4}\right)\left(\frac{\sqrt{3}}{4}\right) \\
+& =\frac{\sqrt{3}}{\mathbf{3 2}} .
+\end{aligned}
+$$

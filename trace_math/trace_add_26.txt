@@ -1,0 +1,126 @@
+MAS FINAL ANSWER: : 3
+TRUE FINAL ANSWER: 3
+
+---------
+TRUE SOLUTION: For $n=1, a_{1} \in \mathbb{Z}_{>0}$ and $\frac{1}{a_{1}} \in \mathbb{Z}_{>0}$ if and only if $a_{1}=1$. Next we show that
+
+(i) There are finitely many $(x, y) \in \mathbb{Q}_{>0}^{2}$ satisfying $x+y \in \mathbb{Z}$ and $\frac{1}{x}+\frac{1}{y} \in \mathbb{Z}$
+
+Write $x=\frac{a}{b}$ and $y=\frac{c}{d}$ with $a, b, c, d \in \mathbb{Z}_{>0}$ and $\operatorname{gcd}(a, b)=\operatorname{gcd}(c, d)=1$. Then $x+y \in \mathbb{Z}$ and $\frac{1}{x}+\frac{1}{y} \in \mathbb{Z}$ is equivalent to the two divisibility conditions
+
+$$
+b d \mid a d+b c \text { (1) and } \quad a c \mid a d+b c
+$$
+
+Condition (1) implies that $d|a d+b c \Longleftrightarrow d| b c \Longleftrightarrow d \mid b$ since $\operatorname{gcd}(c, d)=1$. Still from (1) we get $b|a d+b c \Longleftrightarrow b| a d \Longleftrightarrow b \mid d$ since $\operatorname{gcd}(a, b)=1$. From $b \mid d$ and $d \mid b$ we have $b=d$.
+
+An analogous reasoning with condition (2) shows that $a=c$. Hence $x=\frac{a}{b}=\frac{c}{d}=y$, i.e., the problem amounts to finding all $x \in \mathbb{Q}_{>0}$ such that $2 x \in \mathbb{Z}_{>0}$ and $\frac{2}{x} \in \mathbb{Z}_{>0}$. Letting $n=2 x \in \mathbb{Z}_{>0}$, we have that $\frac{2}{x} \in \mathbb{Z}_{>0} \Longleftrightarrow \frac{4}{n} \in \mathbb{Z}_{>0} \Longleftrightarrow n=1,2$ or 4 , and there are finitely many solutions, namely $(x, y)=\left(\frac{1}{2}, \frac{1}{2}\right)^{n},(1,1)$ or $(2,2)$.
+
+(ii) There are infinitely many triples $(x, y, z) \in \mathbb{Q}_{>0}^{2}$ such that $x+y+z \in \mathbb{Z}$ and $\frac{1}{x}+\frac{1}{y}+\frac{1}{z} \in \mathbb{Z}$. We will look for triples such that $x+y+z=1$, so we may write them in the form
+
+$$
+(x, y, z)=\left(\frac{a}{a+b+c}, \frac{b}{a+b+c}, \frac{c}{a+b+c}\right) \quad \text { with } a, b, c \in \mathbb{Z}_{>0}
+$$
+
+We want these to satisfy
+
+$$
+\frac{1}{x}+\frac{1}{y}+\frac{1}{z}=\frac{a+b+c}{a}+\frac{a+b+c}{b}+\frac{a+b+c}{c} \in \mathbb{Z} \Longleftrightarrow \frac{b+c}{a}+\frac{a+c}{b}+\frac{a+b}{c} \in \mathbb{Z}
+$$
+
+Fixing $a=1$, it suffices to find infinitely many pairs $(b, c) \in \mathbb{Z}_{>0}^{2}$ such that
+
+$$
+\frac{1}{b}+\frac{1}{c}+\frac{c}{b}+\frac{b}{c}=3 \Longleftrightarrow b^{2}+c^{2}-3 b c+b+c=0
+\tag{*}
+$$
+
+To show that equation (*) has infinitely many solutions, we use Vieta jumping (also known as root flipping): starting with $b=2, c=3$, the following algorithm generates infinitely many solutions. Let $c \geqslant b$, and view $(*)$ as a quadratic equation in $b$ for $c$ fixed:
+
+$$
+b^{2}-(3 c-1) \cdot b+\left(c^{2}+c\right)=0
+\tag{**}
+$$
+
+Then there exists another root $b_{0} \in \mathbb{Z}$ of $(* *)$ which satisfies $b+b_{0}=3 c-1$ and $b \cdot b_{0}=c^{2}+c$. Since $c \geqslant b$ by assumption,
+
+$$
+b_{0}=\frac{c^{2}+c}{b} \geqslant \frac{c^{2}+c}{c}>c
+$$
+
+Hence from the solution $(b, c)$ we obtain another one $\left(c, b_{0}\right)$ with $b_{0}>c$, and we can then "jump" again, this time with $c$ as the "variable" in the quadratic (*). This algorithm will generate an infinite sequence of distinct solutions, whose first terms are
+
+$(2,3),(3,6),(6,14),(14,35),(35,90),(90,234),(234,611),(611,1598),(1598,4182), \ldots$
+Call the $n$-tuples $\left(a_{1}, a_{2}, \ldots, a_{n}\right) \in \mathbb{Q}_{>0}^{n}$ satisfying the conditions of the problem statement good, and those for which
+
+$$
+f\left(a_{1}, \ldots, a_{n}\right) \stackrel{\text { def }}{=}\left(a_{1}+a_{2}+\cdots+a_{n}\right)\left(\frac{1}{a_{1}}+\frac{1}{a_{2}}+\cdots+\frac{1}{a_{n}}\right)
+$$
+
+is an integer pretty. Then good $n$-tuples are pretty, and if $\left(b_{1}, \ldots, b_{n}\right)$ is pretty then
+
+$$
+\left(\frac{b_{1}}{b_{1}+b_{2}+\cdots+b_{n}}, \frac{b_{2}}{b_{1}+b_{2}+\cdots+b_{n}}, \ldots, \frac{b_{n}}{b_{1}+b_{2}+\cdots+b_{n}}\right)
+$$
+
+is good since the sum of its components is 1 , and the sum of the reciprocals of its components equals $f\left(b_{1}, \ldots, b_{n}\right)$. We declare pretty $n$-tuples proportional to each other equivalent since they are precisely those which give rise to the same good $n$-tuple. Clearly, each such equivalence class contains exactly one $n$-tuple of positive integers having no common prime divisors. Call such $n$-tuple a primitive pretty tuple. Our task is to find infinitely many primitive pretty $n$-tuples.
+
+For $n=1$, there is clearly a single primitive 1-tuple. For $n=2$, we have $f(a, b)=\frac{(a+b)^{2}}{a b}$, which can be integral (for coprime $a, b \in \mathbb{Z}_{>0}$ ) only if $a=b=1$ (see for instance (i) in the first solution).
+
+Now we construct infinitely many primitive pretty triples for $n=3$. Fix $b, c, k \in \mathbb{Z}_{>0}$; we will try to find sufficient conditions for the existence of an $a \in \mathbb{Q}_{>0}$ such that $f(a, b, c)=k$. Write $\sigma=b+c, \tau=b c$. From $f(a, b, c)=k$, we have that $a$ should satisfy the quadratic equation
+
+$$
+a^{2} \cdot \sigma+a \cdot\left(\sigma^{2}-(k-1) \tau\right)+\sigma \tau=0
+$$
+
+whose discriminant is
+
+$$
+\Delta=\left(\sigma^{2}-(k-1) \tau\right)^{2}-4 \sigma^{2} \tau=\left((k+1) \tau-\sigma^{2}\right)^{2}-4 k \tau^{2}
+$$
+
+We need it to be a square of an integer, say, $\Delta=M^{2}$ for some $M \in \mathbb{Z}$, i.e., we want
+
+$$
+\left((k+1) \tau-\sigma^{2}\right)^{2}-M^{2}=2 k \cdot 2 \tau^{2}
+$$
+
+so that it suffices to set
+
+$$
+(k+1) \tau-\sigma^{2}=\tau^{2}+k, \quad M=\tau^{2}-k .
+$$
+
+The first relation reads $\sigma^{2}=(\tau-1)(k-\tau)$, so if $b$ and $c$ satisfy
+
+$$
+\tau-1 \mid \sigma^{2} \quad \text { i.e. } \quad b c-1 \mid(b+c)^{2}
+$$
+
+then $k=\frac{\sigma^{2}}{\tau-1}+\tau$ will be integral, and we find rational solutions to (1), namely
+
+$$
+a=\frac{\sigma}{\tau-1}=\frac{b+c}{b c-1} \quad \text { or } \quad a=\frac{\tau^{2}-\tau}{\sigma}=\frac{b c \cdot(b c-1)}{b+c}
+$$
+
+
+
+We can now find infinitely many pairs $(b, c)$ satisfying (2) by Vieta jumping. For example, if we impose
+
+$$
+(b+c)^{2}=5 \cdot(b c-1)
+$$
+
+then all pairs $(b, c)=\left(v_{i}, v_{i+1}\right)$ satisfy the above condition, where
+
+$$
+v_{1}=2, v_{2}=3, \quad v_{i+2}=3 v_{i+1}-v_{i} \quad \text { for } i \geqslant 0
+$$
+
+For $(b, c)=\left(v_{i}, v_{i+1}\right)$, one of the solutions to (1) will be $a=(b+c) /(b c-1)=5 /(b+c)=$ $5 /\left(v_{i}+v_{i+1}\right)$. Then the pretty triple $(a, b, c)$ will be equivalent to the integral pretty triple
+
+$$
+\left(5, v_{i}\left(v_{i}+v_{i+1}\right), v_{i+1}\left(v_{i}+v_{i+1}\right)\right)
+$$
+
+After possibly dividing by 5 , we obtain infinitely many primitive pretty triples, as required.

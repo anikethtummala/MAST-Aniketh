@@ -1,0 +1,123 @@
+MAS FINAL ANSWER: : \(3n\)
+TRUE FINAL ANSWER: $3 n$
+
+---------
+TRUE SOLUTION: It is easy to find $3 n$ such planes. For example, planes $x=i, y=i$ or $z=i$ $(i=1,2, \ldots, n)$ cover the set $S$ but none of them contains the origin. Another such collection consists of all planes $x+y+z=k$ for $k=1,2, \ldots, 3 n$.
+
+We show that $3 n$ is the smallest possible number.
+
+Lemma 1. Consider a nonzero polynomial $P\left(x_{1}, \ldots, x_{k}\right)$ in $k$ variables. Suppose that $P$ vanishes at all points $\left(x_{1}, \ldots, x_{k}\right)$ such that $x_{1}, \ldots, x_{k} \in\{0,1, \ldots, n\}$ and $x_{1}+\cdots+x_{k}>0$, while $P(0,0, \ldots, 0) \neq 0$. Then $\operatorname{deg} P \geq k n$.
+
+Proof. We use induction on $k$. The base case $k=0$ is clear since $P \neq 0$. Denote for clarity $y=x_{k}$.
+
+Let $R\left(x_{1}, \ldots, x_{k-1}, y\right)$ be the residue of $P$ modulo $Q(y)=y(y-1) \ldots(y-n)$. Polynomial $Q(y)$ vanishes at each $y=0,1, \ldots, n$, hence $P\left(x_{1}, \ldots, x_{k-1}, y\right)=R\left(x_{1}, \ldots, x_{k-1}, y\right)$ for all $x_{1}, \ldots, x_{k-1}, y \in\{0,1, \ldots, n\}$. Therefore, $R$ also satisfies the condition of the Lemma; moreover, $\operatorname{deg}_{y} R \leq n$. Clearly, $\operatorname{deg} R \leq \operatorname{deg} P$, so it suffices to prove that $\operatorname{deg} R \geq n k$.
+
+Now, expand polynomial $R$ in the powers of $y$ :
+$$
+R\left(x_{1}, \ldots, x_{k-1}, y\right)=R_{n}\left(x_{1}, \ldots, x_{k-1}\right) y^{n}+R_{n-1}\left(x_{1}, \ldots, x_{k-1}\right) y^{n-1}+\cdots+R_{0}\left(x_{1}, \ldots, x_{k-1}\right)
+$$
+We show that polynomial $R_{n}\left(x_{1}, \ldots, x_{k-1}\right)$ satisfies the condition of the induction hypothesis.
+
+Consider the polynomial $T(y)=R(0, \ldots, 0, y)$ of degree $\leq n$. This polynomial has $n$ roots $y=1, \ldots, n$; on the other hand, $T(y) \not \equiv 0$ since $T(0) \neq 0$. Hence $\operatorname{deg} T=n$, and its leading coefficient is $R_{n}(0,0, \ldots, 0) \neq 0$. In particular, in the case $k=1$ we obtain that coefficient $R_{n}$ is nonzero.
+
+Similarly, take any numbers $a_{1}, \ldots, a_{k-1} \in\{0,1, \ldots, n\}$ with $a_{1}+\cdots+a_{k-1}>0$. Substituting $x_{i}=a_{i}$ into $R\left(x_{1}, \ldots, x_{k-1}, y\right)$, we get a polynomial in $y$ which vanishes at all points $y=0, \ldots, n$ and has degree $\leq n$. Therefore, this polynomial is null, hence $R_{i}\left(a_{1}, \ldots, a_{k-1}\right)=0$ for all $i=0,1, \ldots, n$. In particular, $R_{n}\left(a_{1}, \ldots, a_{k-1}\right)=0$.
+
+Thus, the polynomial $R_{n}\left(x_{1}, \ldots, x_{k-1}\right)$ satisfies the condition of the induction hypothesis. So, we have $\operatorname{deg} R_{n} \geq(k-1) n$ and $\operatorname{deg} P \geq \operatorname{deg} R \geq \operatorname{deg} R_{n}+n \geq k n$.
+
+Now we can finish the solution. Suppose that there are $N$ planes covering all the points of $S$ but not containing the origin. Let their equations be $a_{i} x+b_{i} y+c_{i} z+d_{i}=0$. Consider the polynomial
+$$
+P(x, y, z)=\prod_{i=1}^{N}\left(a_{i} x+b_{i} y+c_{i} z+d_{i}\right)
+$$
+It has total degree $N$. This polynomial has the property that $P\left(x_{0}, y_{0}, z_{0}\right)=0$ for any $\left(x_{0}, y_{0}, z_{0}\right) \in S$, while $P(0,0,0) \neq 0$. Hence by Lemma 1 we get $N=\operatorname{deg} P \geq 3 n$, as desired.
+We present a different proof of the main Lemma 1. Here we confine ourselves to the case $k=3$, which is applied in the solution, and denote the variables by $x, y$ and $z$. (The same proof works for the general statement as well.)
+
+The following fact is known with various proofs; we provide one possible proof for the completeness.
+
+Lemma 2. For arbitrary integers $0 \leq m<n$ and for an arbitrary polynomial $P(x)$ of degree $m$,
+$$
+\sum_{k=0}^{n}(-1)^{k}\left(\begin{array}{l}
+n \\
+k
+\end{array}\right) P(k)=0\tag{1}
+$$
+Proof. We use an induction on $n$. If $n=1$, then $P(x)$ is a constant polynomial, hence $P(1)-P(0)=0$, and the base is proved.
+
+For the induction step, define $P_{1}(x)=P(x+1)-P(x)$. Then clearly $\operatorname{deg} P_{1}=\operatorname{deg} P-1=$ $m-1<n-1$, hence by the induction hypothesis we get
+$$
+\begin{aligned}
+0 & =-\sum_{k=0}^{n-1}(-1)^{k}\left(\begin{array}{c}
+n-1 \\
+k
+\end{array}\right) P_{1}(k)=\sum_{k=0}^{n-1}(-1)^{k}\left(\begin{array}{c}
+n-1 \\
+k
+\end{array}\right)(P(k)-P(k+1)) \\
+& =\sum_{k=0}^{n-1}(-1)^{k}\left(\begin{array}{c}
+n-1 \\
+k
+\end{array}\right) P(k)-\sum_{k=0}^{n-1}(-1)^{k}\left(\begin{array}{c}
+n-1 \\
+k
+\end{array}\right) P(k+1) \\
+& =\sum_{k=0}^{n-1}(-1)^{k}\left(\begin{array}{c}
+n-1 \\
+k
+\end{array}\right) P(k)+\sum_{k=1}^{n}(-1)^{k}\left(\begin{array}{c}
+n-1 \\
+k-1
+\end{array}\right) P(k) \\
+& =P(0)+\sum_{k=1}^{n-1}(-1)^{k}\left(\left(\begin{array}{c}
+n-1 \\
+k-1
+\end{array}\right)+\left(\begin{array}{c}
+n-1 \\
+k
+\end{array}\right)\right) P(k)+(-1)^{n} P(n)=\sum_{k=0}^{n}(-1)^{k}\left(\begin{array}{c}
+n \\
+k
+\end{array}\right) P(k) .
+\end{aligned}
+$$
+Now return to the proof of Lemma 1. Suppose, to the contrary, that $\operatorname{deg} P=N<3 n$. Consider the sum
+$$
+\Sigma=\sum_{i=0}^{n} \sum_{j=0}^{n} \sum_{k=0}^{n}(-1)^{i+j+k}\left(\begin{array}{c}
+n \\
+i
+\end{array}\right)\left(\begin{array}{l}
+n \\
+j
+\end{array}\right)\left(\begin{array}{l}
+n \\
+k
+\end{array}\right) P(i, j, k)
+$$
+The only nonzero term in this sum is $P(0,0,0)$ and its coefficient is $\left(\begin{array}{l}n \\ 0\end{array}\right)^{3}=1$; therefore $\Sigma=P(0,0,0) \neq 0$.
+
+On the other hand, if $P(x, y, z)=\sum_{\alpha+\beta+\gamma \leq N} p_{\alpha, \beta, \gamma} x^{\alpha} y^{\beta} z^{\gamma}$, then
+$$
+\begin{aligned}
+\Sigma & =\sum_{i=0}^{n} \sum_{j=0}^{n} \sum_{k=0}^{n}(-1)^{i+j+k}\left(\begin{array}{c}
+n \\
+i
+\end{array}\right)\left(\begin{array}{l}
+n \\
+j
+\end{array}\right)\left(\begin{array}{l}
+n \\
+k
+\end{array}\right) \sum_{\alpha+\beta+\gamma \leq N} p_{\alpha, \beta, \gamma} i^{\alpha} j^{\beta} k^{\gamma} \\
+& =\sum_{\alpha+\beta+\gamma \leq N} p_{\alpha, \beta, \gamma}\left(\sum_{i=0}^{n}(-1)^{i}\left(\begin{array}{c}
+n \\
+i
+\end{array}\right) i^{\alpha}\right)\left(\sum_{j=0}^{n}(-1)^{j}\left(\begin{array}{c}
+n \\
+j
+\end{array}\right) j^{\beta}\right)\left(\sum_{k=0}^{n}(-1)^{k}\left(\begin{array}{l}
+n \\
+k
+\end{array}\right) k^{\gamma}\right) .
+\end{aligned}
+$$
+Consider an arbitrary term in this sum. We claim that it is zero. Since $N<3 n$, one of three inequalities $\alpha<n, \beta<n$ or $\gamma<n$ is valid. For the convenience, suppose that $\alpha<n$. Applying Lemma 2 to polynomial $x^{\alpha}$, we get $\sum_{i=0}^{n}(-1)^{i}\left(\begin{array}{c}n \\ i\end{array}\right) i^{\alpha}=0$, hence the term is zero as required.
+
+This yields $\Sigma=0$ which is a contradiction. Therefore, $\operatorname{deg} P \geq 3 n$.

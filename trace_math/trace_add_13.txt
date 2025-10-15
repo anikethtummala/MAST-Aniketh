@@ -1,4 +1,8 @@
-MAS FINAL ANSWER: : 4044TRUE FINAL ANSWER: 3---------TRUE SOLUTION: We solve the problem for $n$-tuples for any $n \geqslant 3$ : we will show that the answer is $s=3$, regardless of the value of $n$.
+MAS FINAL ANSWER: : 4044
+TRUE FINAL ANSWER: 3
+
+---------
+TRUE SOLUTION: We solve the problem for $n$-tuples for any $n \geqslant 3$ : we will show that the answer is $s=3$, regardless of the value of $n$.
 
 First, let us briefly introduce some notation. For an $n$-tuple $\mathbf{v}$, we will write $\mathbf{v}_{i}$ for its $i$-th coordinate (where $1 \leqslant i \leqslant n$ ). For a positive integer $n$ and a tuple $\mathbf{v}$ we will denote by $n \cdot \mathbf{v}$ the tuple obtained by applying addition on $\mathbf{v}$ with itself $n$ times. Furthermore, we denote by $\mathbf{e}(i)$ the tuple which has $i$-th coordinate equal to one and all the other coordinates equal to zero. We say that a tuple is positive if all its coordinates are positive, and negative if all its coordinates are negative.
 

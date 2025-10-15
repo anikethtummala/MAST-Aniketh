@@ -1,0 +1,18 @@
+MAS FINAL ANSWER: : \( \frac{40}{B} \)
+TRUE FINAL ANSWER: $5 \sqrt[3]{4}$
+
+---------
+TRUE SOLUTION: Let the roots of the first equation be $p, q, r$ and the roots of the second equation be $p, q, s$. Then $p q r=-10$ and $p q s=-50$, so $\frac{s}{r}=5$. Also $p+q+r=0$ and $p+q+s=-B$, so $r-s=B$. Substituting yields $r-5 r=-4 r=B$, so $r=-\frac{B}{4}$ and $s=-\frac{5 B}{4}$. From the second given equation, $p q+p s+q s=p q+s(p+q)=0$, so $p q-\frac{5 B}{4}(p+q)=0$, or $p q=\frac{5 B}{4}(p+q)$. Because $p+q+r=0, p+q=-r=\frac{B}{4}$, and so $p q=\frac{5 B^{2}}{16}$. Because $p q r=-10$ and $r=-\frac{B}{4}$, conclude that $p q=\frac{40}{B}$. Thus $\frac{5 B^{2}}{16}=\frac{40}{B}$, so $B^{3}=128$ and $B=4 \sqrt[3]{2}$. Then $p q=\frac{5 B^{2}}{16}$ implies that $p q=5 \sqrt[3]{4}$ (and $r=-\sqrt[3]{2}$ ).
+Let the common roots be $p$ and $q$. Then the following polynomials (linear combinations of the originals) must also have $p$ and $q$ as common zeros:
+
+$$
+\begin{aligned}
+\left(x^{3}+B x^{2}+50\right)-\left(x^{3}+A x+10\right) & =B x^{2}-A x+40 \\
+-\left(x^{3}+B x^{2}+50\right)+5\left(x^{3}+A x+10\right) & =4 x^{3}-B x^{2}+5 A x
+\end{aligned}
+$$
+
+Because $p q \neq 0$, neither $p$ nor $q$ is zero, so the second polynomial has zeros $p, q$, and 0 . Therefore $p$ and $q$ are zeros of $4 x^{2}-B x+5 A$. [This result can also be obtained by using the Euclidean Algorithm on the original polynomials.]
+
+Because the two quadratic equations have the same zeros, their coefficients are proportional: $\frac{4}{B}=\frac{5 A}{40} \Rightarrow A B=32$ and $\frac{4}{B}=\frac{-B}{-A} \Rightarrow 4 A=B^{2}$. Hence $\frac{128}{B}=B^{2}$ and $B^{3}=128$, so $B=4 \sqrt[3]{2}$. Rewriting the first quadratic as $B\left(x^{2}-\frac{A}{B} x+\frac{40}{B}\right)$ shows that the product $p q=\frac{40}{B}=5 \sqrt[3]{4}$.
+Using the sum of roots formulas, notice that $p q+p s+q s=p+q+r=0$. Therefore $0=p q+p s+q s-(p+q+r) s=p q-r s$, and $p q=r s$. Hence $(p q)^{3}=(p q r)(p q s)=$ $(-10)(-50)=500$, so $p q=5 \sqrt[3]{4}$.

@@ -1,0 +1,5 @@
+MAS FINAL ANSWER: 98,754
+TRUE FINAL ANSWER: 98721
+
+---------
+TRUE SOLUTION: Let $N_{K}$ be the largest $K$-digit number which has distinct digits and is a multiple of 63 . It can readily be verified that $N_{1}=0, N_{2}=63$, and $N_{3}=945$. For $K>3$, compute $N_{K}$ using the following strategy: start with the number $M_{0}=\underline{9} \underline{8} \underline{7} \ldots(10-K)$; let $M_{1}$ be the largest multiple of 63 not exceeding $M_{0}$. That is, to compute $M_{1}$, divide $M_{0}$ by 63 and discard the remainder: $M_{0}=1587 \cdot 63+44$, so $M_{1}=M_{0}-44=1587 \cdot 63$. If $M_{1}$ has distinct digits, then $N_{K}=M_{1}$. Otherwise, let $M_{2}=M_{1}-63, M_{3}=M_{2}-63$, and so on; then $N_{K}$ is the first term of the sequence $M_{1}, M_{2}, M_{3}, \ldots$ that has distinct digits. Applying this strategy gives $N_{4}=9765, N_{5}=98721, N_{6}=987651$, and $N_{7}=9876510$. With $T=3, K=5$, and the answer is $\mathbf{9 8 7 2 1}$.

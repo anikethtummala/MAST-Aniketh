@@ -1,0 +1,13 @@
+MAS FINAL ANSWER: : 33
+TRUE FINAL ANSWER: 33
+
+---------
+TRUE SOLUTION: Since we are looking for the value of $f(9)$, then it makes sense to use the given equation and to set $x=3$ in order to obtain $f(9)=2 f(3)+3$.
+
+So we need to determine the value of $f(3)$. We use the equation again and set $x=0$ since we will then get $f(3)$ on the left side and $f(0)$ (whose value we already know) on the right side, ie.
+
+$$
+f(3)=2 f(0)+3=2(6)+3=15
+$$
+
+Thus, $f(9)=2(15)+3=33$.

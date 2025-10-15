@@ -1,0 +1,15 @@
+MAS FINAL ANSWER: : \( x = 1000 \).
+TRUE FINAL ANSWER: 1000
+
+---------
+TRUE SOLUTION: Using logarithm rules, the given equation is equivalent to $2^{2 \log _{10} x}=3\left(2 \cdot 2^{\log _{10} x}\right)+16$ or $\left(2^{\log _{10} x}\right)^{2}=6 \cdot 2^{\log _{10} x}+16$.
+
+Set $u=2^{\log _{10} x}$. Then the equation becomes $u^{2}=6 u+16$ or $u^{2}-6 u-16=0$.
+
+Factoring, we obtain $(u-8)(u+2)=0$ and so $u=8$ or $u=-2$.
+
+Since $2^{a}>0$ for any real number $a$, then $u>0$ and so we can reject the possibility that $u=-2$.
+
+Thus, $u=2^{\log _{10} x}=8$ which means that $\log _{10} x=3$.
+
+Therefore, $x=1000$.

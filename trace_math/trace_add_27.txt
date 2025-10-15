@@ -1,0 +1,51 @@
+MAS FINAL ANSWER: : \( \angle BEA_1 = 45^\circ \), \( \angle AEB_1 = 45^\circ \)
+TRUE FINAL ANSWER: $\angle B E A_{1}=90$,$\angle A E B_{1}=90$
+
+---------
+TRUE SOLUTION: Let $K$ be the intersection point of lines $J C$ and $A_{1} B_{1}$. Obviously $J C \perp A_{1} B_{1}$ and since $A_{1} B_{1} \perp A B$, the lines $J K$ and $C_{1} D$ are parallel and equal. From the right triangle $B_{1} C J$ we obtain $J C_{1}^{2}=J B_{1}^{2}=J C \cdot J K=J C \cdot C_{1} D$ from which we infer that $D C_{1} / C_{1} J=C_{1} J / J C$ and the right triangles $D C_{1} J$ and $C_{1} J C$ are similar. Hence $\angle C_{1} D J=\angle J C_{1} C$, which implies that the lines $D J$ and $C_{1} C$ are perpendicular, i.e. the points $C_{1}, E, C$ are collinear.
+
+<img_3975>
+
+Since $\angle C A_{1} J=\angle C B_{1} J=\angle C E J=90^{\circ}$, points $A_{1}, B_{1}$ and $E$ lie on the circle of diameter $C J$. Then $\angle D B A_{1}=\angle A_{1} C J=\angle D E A_{1}$, which implies that quadrilateral $B E A_{1} D$ is cyclic; therefore $\angle A_{1} E B=90^{\circ}$.
+
+Quadrilateral $A D E B_{1}$ is also cyclic because $\angle E B_{1} A=\angle E J C=\angle E D C_{1}$, therefore we obtain $\angle A E B_{1}=\angle A D B=90^{\circ}$.
+
+<img_3438>
+Consider the circles $\omega_{1}, \omega_{2}$ and $\omega_{3}$ of diameters $C_{1} D, A_{1} B$ and $A B_{1}$, respectively. Line segments $J C_{1}, J B_{1}$ and $J A_{1}$ are tangents to those circles and, due to the right angle at $D$, $\omega_{2}$ and $\omega_{3}$ pass through point $D$. Since $\angle C_{1} E D$ is a right angle, point $E$ lies on circle $\omega_{1}$, therefore
+
+$$
+J C_{1}^{2}=J D \cdot J E
+$$
+
+Since $J A_{1}=J B_{1}=J C_{1}$ are all radii of the excircle, we also have
+
+$$
+J A_{1}^{2}=J D \cdot J E \quad \text { and } \quad J B_{1}^{2}=J D \cdot J E .
+$$
+
+These equalities show that $E$ lies on circles $\omega_{2}$ and $\omega_{3}$ as well, so $\angle B E A_{1}=\angle A E B_{1}=90^{\circ}$.
+
+### solution_2
+First note that $A_{1} B_{1}$ is perpendicular to the external angle bisector $C J$ of $\angle B C A$ and parallel to the internal angle bisector of that angle. Therefore, $A_{1} B_{1}$ is perpendicular to $A B$ if and only if triangle $A B C$ is isosceles, $A C=B C$. In that case the external bisector $C J$ is parallel to $A B$.
+
+Triangles $A B C$ and $B_{1} A_{1} J$ are similar, as their corresponding sides are perpendicular. In particular, we have $\angle D A_{1} J=\angle C_{1} B A_{1}$; moreover, from cyclic deltoid $J A_{1} B C_{1}$,
+
+$$
+\angle C_{1} A_{1} J=\angle C_{1} B J=\frac{1}{2} \angle C_{1} B A_{1}=\frac{1}{2} \angle D A_{1} J
+$$
+
+Therefore, $A_{1} C_{1}$ bisects angle $\angle D A_{1} J$.
+
+<img_3155>
+
+In triangle $B_{1} A_{1} J$, line $J C_{1}$ is the external bisector at vertex $J$. The point $C_{1}$ is the intersection of two external angle bisectors (at $A_{1}$ and $J$ ) so $C_{1}$ is the centre of the excircle $\omega$, tangent to side $A_{1} J$, and to the extension of $B_{1} A_{1}$ at point $D$.
+
+Now consider the similarity transform $\varphi$ which moves $B_{1}$ to $A, A_{1}$ to $B$ and $J$ to $C$. This similarity can be decomposed into a rotation by $90^{\circ}$ around a certain point $O$ and a homothety from the same centre. This similarity moves point $C_{1}$ (the centre of excircle $\omega$ ) to $J$ and moves $D$ (the point of tangency) to $C_{1}$.
+
+Since the rotation angle is $90^{\circ}$, we have $\angle X O \varphi(X)=90^{\circ}$ for an arbitrary point $X \neq O$. For $X=D$ and $X=C_{1}$ we obtain $\angle D O C_{1}=\angle C_{1} O J=90^{\circ}$. Therefore $O$ lies on line segment $D J$ and $C_{1} O$ is perpendicular to $D J$. This means that $O=E$.
+
+For $X=A_{1}$ and $X=B_{1}$ we obtain $\angle A_{1} O B=\angle B_{1} O A=90^{\circ}$, i.e.
+
+$$
+\angle B E A_{1}=\angle A E B_{1}=90^{\circ} .
+$$

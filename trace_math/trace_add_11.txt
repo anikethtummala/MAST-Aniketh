@@ -1,4 +1,9 @@
-MAS FINAL ANSWER: \((x, y, z) = (1, -4, -2), (3, 2, 3), (13, 2, -2)\)TRUE FINAL ANSWER: (1,-4,-2),(3,2,3),(13,2,-2)---------TRUE SOLUTION: Since $(x-1)(y-2)=0$, then $x=1$ or $y=2$.
+MAS FINAL ANSWER: :
+\((x, y, z) = (1, -4, -2)\) and \((x, y, z) = (3, 2, 3)\)
+TRUE FINAL ANSWER: (1,-4,-2),(3,2,3),(13,2,-2)
+
+---------
+TRUE SOLUTION: Since $(x-1)(y-2)=0$, then $x=1$ or $y=2$.
 
 Suppose that $x=1$. In this case, the remaining equations become:
 

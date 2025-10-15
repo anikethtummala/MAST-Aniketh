@@ -1,0 +1,5 @@
+MAS FINAL ANSWER: 41
+TRUE FINAL ANSWER: 41
+
+---------
+TRUE SOLUTION: $8^{n}=2^{3 n}$ and $16^{32}=2^{128}$. Therefore $4<3 n<128$, and $2 \leq n \leq 42$. Thus there are 41 such integers $n$.

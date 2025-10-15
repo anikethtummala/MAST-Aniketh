@@ -1,0 +1,5 @@
+MAS FINAL ANSWER: : \( x = 3 \)
+TRUE FINAL ANSWER: 3
+
+---------
+TRUE SOLUTION: $\quad$ Plug $y=-x$ into the second equation to obtain $x=\sqrt[3]{\frac{54+T}{2}}$. With $T=0, x=\sqrt[3]{27}=3$.

@@ -1,4 +1,8 @@
-MAS FINAL ANSWER: : \( \angle C = 44^\circ \)TRUE FINAL ANSWER: $44$---------TRUE SOLUTION: Let the feet of the altitudes from $A$ and $B$ be $E$ and $D$, respectively, and let $F$ and $G$ be the intersection points of the angle bisectors with $\overline{A C}$ and $\overline{B C}$, respectively, as shown below.
+MAS FINAL ANSWER: **: \( 44^\circ \)
+TRUE FINAL ANSWER: $44$
+
+---------
+TRUE SOLUTION: Let the feet of the altitudes from $A$ and $B$ be $E$ and $D$, respectively, and let $F$ and $G$ be the intersection points of the angle bisectors with $\overline{A C}$ and $\overline{B C}$, respectively, as shown below.
 
 <img_3386>
 

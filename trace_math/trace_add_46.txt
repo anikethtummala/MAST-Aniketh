@@ -1,0 +1,5 @@
+MAS FINAL ANSWER: 253
+TRUE FINAL ANSWER: 888
+
+---------
+TRUE SOLUTION: Let $B C=a, A C=b, A B=c$. Also, let $A D=e$ and $B D=f$. Then $a+b+e+f=2019$, the values $a, b$, and $e+f$ are integers, and by the Angle Bisector Theorem, $\frac{e}{f}=\frac{b}{a}$. So $b=\frac{a e}{f}=\frac{229 a}{f}$. Because 229 is prime and $\operatorname{gcd}(b, e)=1$, conclude that $f$ must be an integer multiple of 229 . So let $f=229 x$ for some integer $x$. Then $a=b \cdot x$ and $a+b+c=2019$ implies $2019=b x+b+229+229 x=(b+229)(1+x)$. Because $2019=673 \cdot 3$, it follows that $b=444$ and $x=2$, from which $B C=a=\mathbf{8 8 8}$.

@@ -1,0 +1,5 @@
+MAS FINAL ANSWER: : 42
+TRUE FINAL ANSWER: 49
+
+---------
+TRUE SOLUTION: Notice that $\triangle A R M$ is fixed, so the number of integers that could be the perimeter of $A R M L$ is the same as the number of integers that could be the length $A L$ in $\triangle A L M$. By the Triangle Inequality, $32-25<A L<32+25$, so $A L$ is at least 8 and no greater than 56 . The number of possible integer values for $A L$ is $56-8+1=49$.

@@ -1,0 +1,27 @@
+MAS FINAL ANSWER: 4
+TRUE FINAL ANSWER: 8
+
+---------
+TRUE SOLUTION: First, note that
+
+$$
+\left\lfloor(\log x)^{2}\right\rfloor \leq(\log x)^{2} \Longrightarrow \frac{3+\left\lfloor(\log x)^{2}\right\rfloor}{4} \leq \frac{3+(\log x)^{2}}{4}
+$$
+
+Therefore
+
+$$
+\log x \leq \frac{(\log x)^{2}+3}{4} \Longrightarrow 0 \leq(\log x)^{2}-4 \log x+3=(\log x-1)(\log x-3)
+$$
+
+This implies either $\log x \leq 1$ or $\log x \geq 3$, so $0 \leq(\log x)^{2} \leq 1$ or $(\log x)^{2} \geq 9$.
+
+In the first case, $\left\lfloor(\log x)^{2}\right\rfloor=0$ or $\left\lfloor(\log x)^{2}\right\rfloor=1$, so $\log x=\frac{3}{4}$ or $\log x=1$, hence $x=10^{3 / 4}$ or $x=10$.
+
+To solve the second case, note that $\left\lfloor(\log x)^{2}\right\rfloor \geq(\log x)^{2}-1$, so $0 \geq(\log x)^{2}-4 \log x+2$. The solutions to $t^{2}-4 t+2=0$ are $t=\frac{4 \pm \sqrt{16-8}}{2}=2 \pm \sqrt{2}$ by the Quadratic Formula, so $2-\sqrt{2} \leq \log x \leq 2+\sqrt{2}$. This implies that $6-4 \sqrt{2} \leq(\log x)^{2} \leq 6+4 \sqrt{2}$, so $0 \leq\left\lfloor(\log x)^{2}\right\rfloor \leq 11$. However, this case is for $(\log x)^{2} \geq 9$, so the only possibilities that need to be considered are $9 \leq\left\lfloor(\log x)^{2}\right\rfloor \leq 11$.
+
+- If $\left\lfloor(\log x)^{2}\right\rfloor=9$, then $\log x=3$, so $x=10^{3}$.
+- If $\left\lfloor(\log x)^{2}\right\rfloor=10$, then $\log x=\frac{13}{4}$, so $x=10^{13 / 4}$.
+- Finally, if $\left\lfloor(\log x)^{2}\right\rfloor=11$, then $\log x=\frac{7}{2}$, which yields $(\log x)^{2}=\frac{49}{4}>12$, so there are no solutions.
+
+Thus the product of all possible values of $x$ is $y=10^{3 / 4} \cdot 10 \cdot 10^{13 / 4} \cdot 10^{3}=10^{8}$, so $y=\mathbf{8}$.

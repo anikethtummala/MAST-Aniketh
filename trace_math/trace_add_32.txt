@@ -1,0 +1,25 @@
+MAS FINAL ANSWER: : 0.066987
+TRUE FINAL ANSWER: $\frac{1}{16}$
+
+---------
+TRUE SOLUTION: Let $S=\left(1+\sin 6^{\circ}\right)\left(\sin 12^{\circ} \sin 24^{\circ} \sin 42^{\circ}\right)$. It follows from a sum-to-product identity that $1+\sin 6^{\circ}=$ $\sin 90^{\circ}+\sin 6^{\circ}=2 \sin 48^{\circ} \cos 42^{\circ}$. Because the sine of an angle is the cosine of its complement, it follows that
+
+$$
+S=\left(2 \sin 48^{\circ} \cos 42^{\circ}\right)\left(\sin 12^{\circ} \sin 24^{\circ} \sin 42^{\circ}\right)=2\left(\sin 48^{\circ}\right)^{2}\left(\sin 12^{\circ} \sin 24^{\circ} \cos 48^{\circ}\right)
+$$
+
+By the double-angle formula, this means $S=\sin 12^{\circ} \sin 24^{\circ} \sin 48^{\circ} \sin 96^{\circ}$. By a product-to-sum identity,
+
+$$
+\sin 12^{\circ} \sin 48^{\circ}=\frac{\cos 36^{\circ}-\cos 60^{\circ}}{2}=\frac{\sqrt{5}-1}{8}
+$$
+
+
+
+and
+
+$$
+\sin 24^{\circ} \sin 96^{\circ}=\frac{\cos 72^{\circ}-\cos 120^{\circ}}{2}=\frac{\sqrt{5}+1}{8}
+$$
+
+Multiply the expressions on the right-hand sides of (1) and (2) to obtain $\frac{\mathbf{1}}{\mathbf{1 6}}$

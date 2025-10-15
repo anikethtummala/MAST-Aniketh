@@ -1,0 +1,27 @@
+MAS FINAL ANSWER: \(\frac{\sqrt{3}}{8}\)
+TRUE FINAL ANSWER: 623
+
+---------
+TRUE SOLUTION: Suppose that $m$ has hundreds digit $a$, tens digit $b$, and ones (units) digit $c$.
+
+From the given information, $a, b$ and $c$ are distinct, each of $a, b$ and $c$ is less than 10, $a=b c$, and $c$ is odd (since $m$ is odd).
+
+The integer $m=623$ satisfies all of these conditions. Since we are told there is only one such number, then 623 must be the only answer.
+
+Why is this the only possible value of $m$ ?
+
+We note that we cannot have $b=1$ or $c=1$, otherwise $a=c$ or $a=b$.
+
+Thus, $b \geq 2$ and $c \geq 2$.
+
+Since $c \geq 2$ and $c$ is odd, then $c$ can equal $3,5,7$, or 9 .
+
+Since $b \geq 2$ and $a=b c$, then if $c$ equals 5,7 or $9, a$ would be larger than 10 , which is not possible.
+
+Thus, $c=3$.
+
+Since $b \geq 2$ and $b \neq c$, then $b=2$ or $b \geq 4$.
+
+If $b \geq 4$ and $c=3$, then $a>10$, which is not possible.
+
+Therefore, we must have $c=3$ and $b=2$, which gives $a=6$.

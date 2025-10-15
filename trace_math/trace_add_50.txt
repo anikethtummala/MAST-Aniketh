@@ -1,0 +1,5 @@
+MAS FINAL ANSWER: 5
+TRUE FINAL ANSWER: 5
+
+---------
+TRUE SOLUTION: Note that $T$ and $T+10$ have the same units digit. Because units digits of powers of $T$ cycle in groups of at most 4 , the numbers $T^{2023}$ and $(T+10)^{23}$ have the same units digit, hence the number $T^{2023}-(T+10)^{23}$ has a units digit of 0 , and the answer is thus the units digit of $(T-2)^{20}$. With $T=7$, the units digit of $5^{20}$ is 5 .

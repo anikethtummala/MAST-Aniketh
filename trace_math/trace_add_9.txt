@@ -1,6 +1,8 @@
-MAS FINAL ANSWER: : 4/7**
+MAS FINAL ANSWER: : \(\frac{2}{7}\)**
+TRUE FINAL ANSWER: $\frac{10}{21}$
 
-The probability that the last two marbles Akshan removes are blue is \(\frac{4}{7}\).TRUE FINAL ANSWER: $\frac{10}{21}$---------TRUE SOLUTION: Each possible order in which Akshan removes the marbles corresponds to a sequence of 9 colours, 3 of which are red and 6 of which are blue.
+---------
+TRUE SOLUTION: Each possible order in which Akshan removes the marbles corresponds to a sequence of 9 colours, 3 of which are red and 6 of which are blue.
 
 We write these as sequences of 3 R's and 6 B's.
 

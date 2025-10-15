@@ -1,0 +1,26 @@
+MAS FINAL ANSWER: 10036
+TRUE FINAL ANSWER: 9046
+
+---------
+TRUE SOLUTION: If $s(10 x)=a$, then the values of $s$ over $\{10 x+0,10 x+1, \ldots, 10 x+9\}$ are $a, a+2, a+4, \ldots, a+18$. Furthermore, if $x$ is not a multiple of 10 , then $s(10(x+1))=a+11$. This indicates that the values of $s$ "interweave" somewhat from one group of 10 to the next: the sets alternate between even and odd. Because the $s$-values for starting blocks of ten differ by 11, consecutive blocks of the same parity differ by 22 , so the values of $s$ do not overlap. That is, $s$ takes on 100 distinct values over any range of the form $\{100 y+0,100 y+1, \ldots, 100 y+99\}$.
+
+First determine how many values are repeated between consecutive hundreds. Let $y$ be an integer that is not a multiple of 10 . Then the largest value for $s(100 y+k)(0 \leq k \leq 99)$ is $100 y+(s(y)-y)+99+s(99)=100 y+s(y)-y+117$, whereas the smallest value in the next group of 100 is for
+
+$$
+\begin{aligned}
+s(100(y+1)) & =100(y+1)+(s(y+1)-(y+1))=100 y+(s(y)+2)-(y+1)+100 \\
+& =100 y+s(y)-y+101
+\end{aligned}
+$$
+
+This result implies that the values for $s(100 y+91)$ through $s(100 y+99)$ match the values of $s(100 y+100)$ through $s(100 y+108)$. So there are 9 repeated values.
+
+Now determine how many values are repeated between consecutive thousands. Let $z$ be a digit, and consider $s(1000 z+999)$ versus $s(1000(z+1))$. The first value equals
+
+$$
+1000 z+(s(z)-z)+999+s(999)=1000 z+z+1026=1001 z+1026
+$$
+
+The latter value equals $1000(z+1)+(s(z+1)-(z+1))=1001(z+1)=1001 z+1001$. These values differ by an odd number. We have overlap between the $982,983, \ldots, 989$ terms and the $000,001, \ldots, 007$ terms. We also have overlap between the $992,993, \ldots, 999$ terms and the $010,011, \ldots, 017$ terms, for a total of 16 repeated values in all.
+
+There are 90 instances in which we have 9 repeated terms, and 9 instances in which we have 16 repeated terms, so there are a total of $10000-90 \cdot 9-9 \cdot 16=\mathbf{9 0 4 6}$ unique values.

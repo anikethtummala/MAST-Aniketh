@@ -1,0 +1,21 @@
+MAS FINAL ANSWER: \(\frac{2}{7}\)
+TRUE FINAL ANSWER: $\frac{4}{7}$
+
+---------
+TRUE SOLUTION: Victor stops when there are either 2 green balls on the table or 2 red balls on the table. If the first 2 balls that Victor removes are the same colour, Victor will stop.
+
+If the first 2 balls that Victor removes are different colours, Victor does not yet stop, but when he removes a third ball, its colour must match the colour of one of the first 2 balls and so Victor does stop.
+
+Therefore, the probability that he stops with at least 1 red ball and 1 green ball on the table is equal to the probability that the first 2 balls that he removes are different colours. Also, the probability that the first 2 balls that he removes are different colours is equal to 1 minus the probability that the first 2 balls that he removes are the same colour.
+
+The probability that the first two balls that Victor draws are both green is $\frac{3}{7} \cdot \frac{2}{6}$ because for the first ball there are 7 balls in the bag, 3 of which are green and for the second ball there are 6 balls in the bag, 2 of which are green.
+
+The probability that the first two balls that Victor draws are both red is $\frac{4}{7} \cdot \frac{3}{6}$ because for the first ball there are 7 balls in the bag, 4 of which are red and for the second ball there are 6 balls in the bag, 3 of which are red.
+
+Thus, the probability that the first two balls that Victor removes are the same colour is
+
+$$
+\frac{3}{7} \cdot \frac{2}{6}+\frac{4}{7} \cdot \frac{3}{6}=\frac{1}{7}+\frac{2}{7}=\frac{3}{7}
+$$
+
+This means that the desired probability is $1-\frac{3}{7}=\frac{4}{7}$.

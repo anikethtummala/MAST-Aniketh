@@ -1,4 +1,8 @@
-MAS FINAL ANSWER: : \(\frac{89}{128}\)TRUE FINAL ANSWER: $221,$8$---------TRUE SOLUTION: Let $S=\sin ^{6} 1^{\circ}+\sin ^{6} 2^{\circ}+\sin ^{6} 3^{\circ}+\cdots+\sin ^{6} 87^{\circ}+\sin ^{6} 88^{\circ}+\sin ^{6} 89^{\circ}$.
+MAS FINAL ANSWER: \(\frac{221}{8}\)
+TRUE FINAL ANSWER: $221,$8$
+
+---------
+TRUE SOLUTION: Let $S=\sin ^{6} 1^{\circ}+\sin ^{6} 2^{\circ}+\sin ^{6} 3^{\circ}+\cdots+\sin ^{6} 87^{\circ}+\sin ^{6} 88^{\circ}+\sin ^{6} 89^{\circ}$.
 
 Since $\sin \theta=\cos \left(90^{\circ}-\theta\right)$, then $\sin ^{6} \theta=\cos ^{6}\left(90^{\circ}-\theta\right)$, and so
 

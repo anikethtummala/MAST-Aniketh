@@ -1,0 +1,20 @@
+MAS FINAL ANSWER: : 40
+TRUE FINAL ANSWER: 14
+
+---------
+TRUE SOLUTION: Note that in right triangle $A B C$ with right angle $C$, the inradius $r$ is equal to $\frac{a+b-c}{2}$, where $a=B C, b=A C$, and $c=A B$, because the inradius equals the distance from the vertex of the right angle $C$ to (either) point of tangency along $\overline{A C}$ or $\overline{B C}$. Thus the sum of the inradii of triangles $A X P, C X S, C Y R$, and $B Y Q$ is equal to one-half the difference between the sum of the lengths of the legs of these triangles and the sum of the lengths of the hypotenuses of these triangles. Let $t$ be the side length of square $P Q R S$. Then the sum of the lengths of the legs of triangles $A X P, C X S, C Y R$, and $B Y Q$ is
+
+$$
+\begin{aligned}
+& A P+P X+X S+S C+C R+R Y+Y Q+Q B \\
+= & A P+P S+S R+R Q+Q B \\
+= & A P+t+t+t+Q B \\
+= & A B-P Q+3 t \\
+= & c-t+3 t \\
+= & c+2 t .
+\end{aligned}
+$$
+
+
+
+The sum of the lengths of the hypotenuses of triangles $A X P, C X S, C Y R$, and $B Y Q$ is $A X+X C+C Y+Y B=A C+C B=b+a$. Hence the sum of the inradii of triangles $A X P, C X S, C Y R$, and $B Y Q$ is $\frac{c+2 t-(a+b)}{2}=t-r$. Thus the desired sum equals $\sqrt{576}-10=24-10=\mathbf{1 4}$.

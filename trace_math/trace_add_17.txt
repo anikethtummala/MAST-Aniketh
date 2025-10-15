@@ -1,0 +1,5 @@
+MAS FINAL ANSWER: \(6\sqrt{3}\)
+TRUE FINAL ANSWER: 9
+
+---------
+TRUE SOLUTION: Because $\overline{S U}$ and $\overline{R E}$ are sides of the hexagon, $S U=R E=\sqrt{T}$. Let $H$ be the foot of the altitude from $R$ to $\overline{B E}$ in $\triangle B R E$ and note that each interior angle of a regular hexagon is $120^{\circ}$. Thus $B E=B H+H E=2\left(\frac{\sqrt{3}}{2}\right)(\sqrt{T})=\sqrt{3 T}$. Thus $B E \cdot S U \cdot R E=\sqrt{3 T} \cdot \sqrt{T} \cdot \sqrt{T}=T \sqrt{3 T}$. With $T=3$, the answer is $\mathbf{9}$.

@@ -1,4 +1,8 @@
-MAS FINAL ANSWER: **: \( k < -5 \)TRUE FINAL ANSWER: (-\infty,-5)---------TRUE SOLUTION: Since each of these two graphs is symmetric about the $y$-axis (i.e. both are even functions), then we only need to find $k$ so that there are no points of intersection with $x \geq 0$.
+MAS FINAL ANSWER: \( k \leq -5 \)
+TRUE FINAL ANSWER: (-\infty,-5)
+
+---------
+TRUE SOLUTION: Since each of these two graphs is symmetric about the $y$-axis (i.e. both are even functions), then we only need to find $k$ so that there are no points of intersection with $x \geq 0$.
 
 So let $x \geq 0$ and consider the intersection between $y=2 x+k$ and $y=x^{2}-4$.
 

@@ -1,4 +1,8 @@
-MAS FINAL ANSWER: \( k = n^2 \)TRUE FINAL ANSWER: $2 n$---------TRUE SOLUTION: We first construct an example of marking $2 n$ cells satisfying the requirement. Label the rows and columns $1,2, \ldots, 2 n$ and label the cell in the $i$-th row and the $j$-th column $(i, j)$.
+MAS FINAL ANSWER: : The smallest positive integer \( k \) is \( n^2 \).
+TRUE FINAL ANSWER: $2 n$
+
+---------
+TRUE SOLUTION: We first construct an example of marking $2 n$ cells satisfying the requirement. Label the rows and columns $1,2, \ldots, 2 n$ and label the cell in the $i$-th row and the $j$-th column $(i, j)$.
 
 For $i=1,2, \ldots, n$, we mark the cells $(i, i)$ and $(i, i+1)$. We claim that the required partition exists and is unique. The two diagonals of the board divide the board into four regions. Note that the domino covering cell $(1,1)$ must be vertical. This in turn shows that each domino covering $(2,2),(3,3), \ldots,(n, n)$ is vertical. By induction, the dominoes in the left region are all vertical. By rotational symmetry, the dominoes in the bottom region are horizontal, and so on. This shows that the partition exists and is unique.
 <img_3889>
