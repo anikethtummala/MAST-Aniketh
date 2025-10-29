@@ -1,0 +1,108 @@
+C0003 say to All: ### Context Analysis:
+Jen selects 4 distinct numbers from the set S = {1, 2, ..., 10}. Independently, 4 numbers are drawn uniformly at random from S. Jen wins a prize if at least 2 of her chosen numbers are among the drawn numbers, and she wins the grand prize if all 4 of her chosen numbers match the drawn numbers. We are to find the conditional probability of winning the grand prize given that she has won a prize, and ultimately express it as m/n and compute m + n.
+
+### Key Information Summary:
+- Model as a hypergeometric setup with:
+  - Population size: 10
+  - Success states (Jen’s numbers): 4
+  - Draws: 4
+- Let K be the number of matches between Jen’s numbers and the drawn numbers.
+  - P(K = k) = C(4, k) * C(6, 4 − k) / C(10, 4), for k = 0, 1, 2, 3, 4.
+- Prize event B: K ≥ 2 (i.e., k = 2, 3, or 4).
+- Grand prize event A: K = 4.
+- Desired conditional probability:
+  P(A | B) = P(K = 4) / P(K ≥ 2)
+           = [C(4, 4) * C(6, 0)] / [C(4, 2) * C(6, 2) + C(4, 3) * C(6, 1) + C(4, 4) * C(6, 0)].
+----END MESSAGE----
+
+C0002 say to All: ### Logical Reasoning:
+- Jen chooses 4 distinct numbers from S = {1, 2, ..., 10}. Independently, 4 numbers are drawn uniformly at random from S without replacement.
+- Let K be the number of matches between Jen’s chosen set and the drawn set. Then K follows a hypergeometric distribution with parameters (population size 10, number of “successes” 4, draw size 4):
+  P(K = k) = C(4, k) C(6, 4 − k) / C(10, 4), for k = 0, 1, 2, 3, 4.
+- Define events:
+  - A: “Grand prize” = {K = 4}.
+  - B: “Wins a prize” = {K ≥ 2}.
+- The desired probability is the conditional probability P(A | B) = P(K = 4) / P(K ≥ 2).
+
+### Proof Structure:
+1. Model matching count K as hypergeometric: P(K = k) = C(4, k) C(6, 4 − k) / C(10, 4).
+2. Identify events:
+   - A = {K = 4}.
+   - B = {K ∈ {2, 3, 4}}.
+3. Write conditional probability:
+   P(A | B) = P(K = 4) / [P(K = 2) + P(K = 3) + P(K = 4)].
+4. Substitute hypergeometric terms and cancel the common denominator C(10, 4):
+   P(A | B) = [C(4, 4) C(6, 0)] / [C(4, 2) C(6, 2) + C(4, 3) C(6, 1) + C(4, 4) C(6, 0)].
+----END MESSAGE----
+
+C0004 say to All: ### Calculations:
+- Let X be the number of matches between Jen’s 4 numbers and the 4 randomly chosen numbers from S (|S|=10).
+- P(X=k) = C(4,k) C(6,4-k) / C(10,4), for k=0,1,2,3,4; with C(10,4)=210.
+- Compute:
+  - k=2: C(4,2)C(6,2) = 6*15 = 90 → 90/210
+  - k=3: C(4,3)C(6,1) = 4*6 = 24 → 24/210
+  - k=4: C(4,4)C(6,0) = 1*1 = 1 → 1/210
+- Prize event: X ≥ 2 ⇒ P(prize) = (90+24+1)/210 = 115/210 = 23/42.
+- Grand prize: X=4 ⇒ P(grand) = 1/210.
+- Conditional probability: P(grand | prize) = (1/210) / (115/210) = 1/115.
+- Thus m=1, n=115 ⇒ m+n=116.
+
+### Numerical Results:
+116
+----END MESSAGE----
+
+C0002 say to All: ### Logical Reasoning:
+- Fix Jen’s chosen set A of 4 numbers from S. The lottery draws a random 4-subset B from S uniformly among C(10,4) = 210 possibilities.
+- We want P(B = A | |A ∩ B| ≥ 2) = P(B = A) / P(|A ∩ B| ≥ 2), since B = A implies intersection size 4.
+- P(B = A) = 1/210.
+- Count the number of B with exactly k matches with A: C(4, k) · C(6, 4 − k).
+  - For k ≥ 2: 
+    - k = 2: C(4,2)·C(6,2) = 6·15 = 90
+    - k = 3: C(4,3)·C(6,1) = 4·6 = 24
+    - k = 4: C(4,4)·C(6,0) = 1·1 = 1
+  - Total favorable for “at least 2 matches” = 90 + 24 + 1 = 115.
+- Therefore, P(|A ∩ B| ≥ 2) = 115/210.
+
+Hence the conditional probability is (1/210) / (115/210) = 1/115, so m/n = 1/115, and m + n = 116.
+
+### Proof Structure:
+1. Model the draw as selecting a random 4-subset B from S; fix Jen’s 4-subset A.
+2. Use conditional probability formula: P(B = A | |A ∩ B| ≥ 2) = P(B = A)/P(|A ∩ B| ≥ 2).
+3. Compute numerator: P(B = A) = 1/C(10,4) = 1/210.
+4. Compute denominator by counting intersections:
+   - Exactly k common elements count: C(4,k)·C(6,4−k).
+   - Sum for k = 2,3,4 gives 115 subsets, so probability = 115/210.
+5. Divide to get 1/115; thus m + n = 1 + 115 = 116.
+----END MESSAGE----
+
+C0005 say to All: ### Solution Verification: 
+Let K be the number of matches between Jen’s fixed 4-number set and the random 4-number draw from {1,...,10}. Then K ~ Hypergeometric(N=10, K=4, n=4), so:
+- P(K=4) = C(4,4)C(6,0)/C(10,4) = 1/210
+- P(K=3) = C(4,3)C(6,1)/C(10,4) = 24/210
+- P(K=2) = C(4,2)C(6,2)/C(10,4) = 90/210
+
+Prize event: K ≥ 2, so P(prize) = (1 + 24 + 90)/210 = 115/210.
+Grand prize event: K = 4, so P(grand | prize) = (1/210) / (115/210) = 1/115.
+Thus m+n = 1+115 = 116.
+
+### Correctness Confirmation: 
+The counting uses standard hypergeometric probabilities with correct parameters. The conditional probability is computed correctly, and the final result m+n = 116 is verified.
+----END MESSAGE----
+
+C0001 say to All: ### Error Analysis: 
+- Let X be the number of matches between Jen’s 4 chosen numbers and the 4 randomly drawn numbers from S = {1,...,10}. Then X ~ Hypergeometric(N=10, K=4, n=4), with:
+  - P(X=k) = C(4,k)C(6,4−k)/C(10,4), for k=0,1,2,3,4.
+- Compute:
+  - C(10,4)=210.
+  - P(X=2)=C(4,2)C(6,2)/210 = 90/210.
+  - P(X=3)=C(4,3)C(6,1)/210 = 24/210.
+  - P(X=4)=C(4,4)C(6,0)/210 = 1/210.
+- Prize event is X ≥ 2; grand prize is X = 4.
+  - P(prize) = (90+24+1)/210 = 115/210.
+  - P(grand | prize) = (1/210)/(115/210) = 1/115.
+- Fractions simplify correctly, totals sum to 210; no inconsistencies detected.
+
+### Corrections: 
+116
+----END MESSAGE----
+

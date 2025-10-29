@@ -1,0 +1,86 @@
+C0003 say to All: ### Context Analysis:
+We need to count ordered triples of nonnegative integers (a, b, c) such that:
+- a + b + c = 300
+- a^2b + a^2c + b^2a + b^2c + c^2a + c^2b = 6,000,000
+
+Using the symmetric sum identity:
+sum_{sym} a^2b = (a + b + c)(ab + bc + ca) - 3abc,
+let S1 = a + b + c = 300, S2 = ab + bc + ca, T = abc. Then:
+300 S2 - 3T = 6,000,000 ⇒ 100 S2 - T = 2,000,000.
+
+Shift variables: a = 100 + x, b = 100 + y, c = 100 + z with x + y + z = 0.
+Compute:
+- S2 = 30,000 + (xy + yz + zx)
+- T = 1,000,000 + 100(xy + yz + zx) + xyz
+
+Thus 100 S2 - T = 2,000,000 - xyz. The constraint becomes xyz = 0.
+Hence at least one of x, y, z is 0, i.e., at least one of a, b, c equals 100. Conversely, any triple with one entry 100 and the other two summing to 200 satisfies the equation.
+
+### Key Information Summary:
+- The quadratic sum simplifies to 100 S2 - T = 2,000,000.
+- With a = 100 + x, b = 100 + y, c = 100 + z and x + y + z = 0, the condition becomes xyz = 0.
+- Therefore, all and only solutions are ordered triples where at least one component equals 100 and the other two sum to 200.
+- Counting ordered triples:
+  - For a = 100: number of (b, c) with b + c = 200 is 201. Similarly for b = 100 and c = 100.
+  - Inclusion-exclusion: 3*201 - 3*1 + 1 = 601.
+- Total number of ordered triples satisfying the conditions: 601.
+----END MESSAGE----
+
+C0002 say to All: ### Logical Reasoning:
+- Let S1 = a + b + c, S2 = ab + bc + ca, and T = a^2b + a^2c + b^2a + b^2c + c^2a + c^2b.
+- The identity T = S1·S2 − 3abc holds. Given S1 = 300 and T = 6,000,000, we have 6,000,000 = 300·S2 − 3abc, so 100S2 − abc = 2,000,000.
+- Consider (a − 100)(b − 100)(c − 100) = abc − 100S2 + 100^2·S1 − 100^3 = abc − 100S2 + 3,000,000 − 1,000,000 = abc − 100S2 + 2,000,000.
+- Thus the condition 100S2 − abc = 2,000,000 is equivalent to (a − 100)(b − 100)(c − 100) = 0, i.e., at least one of a, b, c equals 100.
+- Count ordered nonnegative integer triples with sum 300 and at least one coordinate equal to 100:
+  - a = 100: b + c = 200 ⇒ 201 solutions. Similarly for b = 100 and c = 100, yielding 3·201 = 603.
+  - Overcount where two coordinates equal 100: only (100,100,100), counted thrice among pairwise intersections, so subtract 3, then add back once for triple intersection.
+  - Total = 603 − 3 + 1 = 601.
+
+### Proof Structure:
+1. Use identity T = S1·S2 − 3abc to convert the given constraint into 100S2 − abc = 2,000,000.
+2. Expand (a − 100)(b − 100)(c − 100) to obtain abc − 100S2 + 2,000,000, which vanishes exactly when the given constraint holds.
+3. Conclude at least one of a, b, c is 100.
+4. Count all ordered triples with sum 300 and at least one entry 100 via inclusion-exclusion to get 601.
+----END MESSAGE----
+
+C0004 say to All: ### Calculations:
+Let S = a + b + c = 300 and E = a^2b + a^2c + b^2a + b^2c + c^2a + c^2b.
+Use identity: E = (a + b + c)(ab + bc + ca) - 3abc = S·p2 - 3r, where p2 = ab + bc + ca and r = abc.
+Given E = 6,000,000 and S = 300:
+300·p2 - 3r = 6,000,000 ⇒ 100·p2 - r = 2,000,000 ⇒ r = 100·p2 - 2,000,000.
+
+Set a = 100 + u, b = 100 + v, c = 100 + w with u + v + w = 0.
+Compute:
+p2 = ab + bc + ca = 30,000 + (uv + vw + wu),
+r = abc = 1,000,000 + 100(uv + vw + wu) + uvw.
+
+Plug into r = 100·p2 - 2,000,000:
+1,000,000 + 100(uv + vw + wu) + uvw = 1,000,000 + 100(uv + vw + wu) ⇒ uvw = 0.
+
+Thus at least one of u, v, w is zero, i.e., at least one of a, b, c equals 100.
+
+Count ordered triples with sum 300 and at least one variable 100:
+- a = 100: b + c = 200 ⇒ 201 solutions.
+- b = 100: 201 solutions.
+- c = 100: 201 solutions.
+Inclusion-exclusion:
+Total = 201 + 201 + 201 − 3·1 + 1 = 603 − 3 + 1 = 601.
+
+### Numerical Results: 601
+----END MESSAGE----
+
+C0001 say to All: ### Error Analysis: 
+- Key identity check: a^2b + a^2c + b^2a + b^2c + c^2a + c^2b = (a+b+c)(ab+bc+ca) - 3abc is correct.
+- Substitution a=100+x, b=100+y, c=100+z with x+y+z=0 yields S = 6,000,000 - 3xyz. Setting S=6,000,000 implies xyz=0. No algebraic errors.
+- Conclusion equivalence: xyz=0 ⇔ at least one of a,b,c equals 100 is valid.
+- Counting ordered triples with at least one coordinate 100: initial 3*201=603, adjust for triple (100,100,100) overcounted thrice using inclusion-exclusion gives 603 - 2 = 601. Counting is correct.
+- Nonnegativity constraints satisfied: when one variable is 100, the other two are nonnegative summing to 200.
+
+### Corrections: 
+601
+----END MESSAGE----
+
+C0005 say to All: ### Solution Verification: Use the identity Σ_sym a^2b = (a+b+c)(ab+bc+ca) - 3abc. With a+b+c=300 and Σ_sym a^2b=6,000,000, we get 6,000,000 = 300S2 - 3S3, so 2,000,000 = 100S2 - S3. For the cubic with roots a,b,c: f(x) = x^3 - 300x^2 + S2 x - S3, we have f(100) = 0 by the relation, so at least one of a,b,c equals 100. Conversely, if a=100 and b+c=200, then S2 = 20,000 + bc and S3 = 100bc, which satisfies 2,000,000 = 100S2 - S3 identically. Thus all ordered triples with one coordinate 100 and sum 300 are solutions. Count them by inclusion-exclusion: |{a=100}|=|{b=100}|=|{c=100}|=201; pairwise intersections each 1 (which is the triple (100,100,100)); total = 3*201 - 3*1 + 1 = 601.
+### Correctness Confirmation: The number of valid triples is 601.
+----END MESSAGE----
+

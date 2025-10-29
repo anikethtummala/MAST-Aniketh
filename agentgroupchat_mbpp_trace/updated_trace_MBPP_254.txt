@@ -1,0 +1,535 @@
+C0002 say to All: ### Implementation Discussion:
+- Goal: Split a list into consecutive sublists (chunks) of size n. The final chunk may be shorter if the list size isn’t a multiple of n.
+- Validation: n must be a positive integer (> 0). The function accepts any sequence/list-like input.
+- Complexity: O(len(lst)) time and O(len(lst)) space for the result.
+- Approach: Use slicing with a step over indices: [lst[i:i+n] for i in range(0, len(lst), n)].
+
+### Code Solution:
+from typing import List, Sequence, TypeVar
+
+T = TypeVar('T')
+
+def list_split(lst: Sequence[T], n: int) -> List[List[T]]:
+    """
+    Split a list (or sequence) into consecutive sublists of length n.
+    The last chunk may be shorter if len(lst) is not divisible by n.
+
+    Args:
+        lst: The input list or sequence to split.
+        n: The positive chunk size.
+
+    Returns:
+        A list of sublists (chunks) of size n.
+
+    Raises:
+        ValueError: If n <= 0.
+    """
+    if n <= 0:
+        raise ValueError("n must be a positive integer")
+
+    seq = list(lst)  # ensure sliceability and len support
+    return [seq[i:i + n] for i in range(0, len(seq), n)]
+
+
+# Example usage:
+if __name__ == "__main__":
+    data = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n']
+    result = list_split(data, 3)
+    print(result)
+    # Expected:
+    # [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i'], ['j', 'k', 'l'], ['m', 'n']]
+ Code compilation result: Code execution error: invalid character '’' (U+2019) (<string>, line 2)
+----END MESSAGE----
+
+C0003 say to All: ### Critical Analysis:
+- The requirement is minimal: define a function list_split that splits a list every n elements, with a provided example call. This typically means chunking the input into contiguous sublists of length n, with the last chunk possibly shorter.
+- Common pitfalls to address:
+  - Input validation: n must be a positive integer; handle non-int and non-positive values clearly.
+  - Edge cases: empty list, n == 1, n > len(list).
+  - Efficiency: slicing a list with range(0, len(s), n) is straightforward and efficient for lists; for generic iterables or very large inputs, a generator-based approach avoids unnecessary copying.
+  - Consistency: clarify behavior for non-list iterables (tuples, generators) and strings. Converting to list internally makes behavior predictable, but note it copies the entire sequence.
+  - Coding hygiene: avoid non-ASCII characters (e.g., smart quotes) that can cause syntax errors; add docstring and type hints for clarity.
+- Expected output for the example should be demonstrated to confirm behavior and avoid ambiguity.
+
+### Improvement Suggestions:
+- Prefer a simple, robust implementation with validation and clear docstring. Two viable approaches:
+  1) List-slicing (best for list inputs):
+     - Code:
+       def list_split(seq, n):
+           """
+           Split a sequence into consecutive chunks of size n.
+           Returns a list of lists. Raises on invalid n.
+           """
+           if not isinstance(n, int):
+               raise TypeError("n must be an int")
+           if n <= 0:
+               raise ValueError("n must be a positive integer")
+           s = list(seq)
+           return [s[i:i + n] for i in range(0, len(s), n)]
+  2) Generator-based (memory-friendly for large/streaming iterables):
+     - Code:
+       from itertools import islice
+
+       def list_split(seq, n):
+           """
+           Split an iterable into consecutive chunks of size n.
+           Returns a list of lists. Raises on invalid n.
+           """
+           if not isinstance(n, int):
+               raise TypeError("n must be an int")
+           if n <= 0:
+               raise ValueError("n must be a positive integer")
+           it = iter(seq)
+           chunks = []
+           while True:
+               chunk = list(islice(it, n))
+               if not chunk:
+                   break
+               chunks.append(chunk)
+           return chunks
+- Provide example usage and expected output to validate correctness:
+  - Example:
+    print(list_split(['a','b','c','d','e','f','g','h','i','j','k','l','m','n'], 3))
+    # Expected: [['a','b','c'], ['d','e','f'], ['g','h','i'], ['j','k','l'], ['m','n']]
+- Add quick edge-case tests:
+  - print(list_split([], 3))                 # []
+  - print(list_split([1, 2], 5))            # [[1, 2]]
+  - print(list_split([1, 2, 3], 1))         # [[1], [2], [3]]
+  - try: list_split([1, 2], 0) except Exception as e: print(type(e).__name__)  # ValueError
+  - try: list_split([1, 2], -2) except Exception as e: print(type(e).__name__) # ValueError
+  - try: list_split([1, 2], 2.5) except Exception as e: print(type(e).__name__)# TypeError
+- Clarify behavior in docstring:
+  - Note that non-list iterables are accepted; the function returns a list of lists of the elements as encountered. For strings, the result is a list of lists of characters.
+- Keep all code ASCII-only and add type hints if desired for clarity:
+  - def list_split(seq, n: int) -> list[list]: ...
+ Code compilation result: Code execution error: unmatched ')' (<string>, line 13)
+----END MESSAGE----
+
+C0001 say to All: ### Requirement Analysis:
+- Goal: Provide a function that splits an input list into consecutive sublists (chunks) of size n, preserving order. The last chunk may contain fewer than n elements if the list length is not a multiple of n.
+- Function name: list_split
+- Example intent: list_split(['a', 'b', ..., 'n'], 3) should produce groups of three elements, with the final group possibly shorter.
+- Inputs:
+  - A list (or sequence/iterable) of elements.
+  - An integer n indicating the chunk size.
+- Outputs:
+  - A list of lists (chunks), where each inner list contains up to n elements from the original list in the same order.
+- Constraints and validations:
+  - n must be an integer greater than 0.
+  - Raise TypeError if n is not an int (ensure bool is not accepted).
+  - Raise ValueError if n <= 0.
+  - Accept empty lists; return an empty list of chunks in that case.
+  - Do not mutate the input list.
+- Edge cases:
+  - Empty list: return [].
+  - n == 1: each element becomes its own chunk.
+  - n > len(list): single chunk equal to the original list.
+  - Non-list iterables may be supported by converting to list internally for predictable behavior.
+- Non-functional:
+  - Time complexity: O(len(list)).
+  - Space complexity: O(len(list)) for the output (plus conversion if input is an iterable).
+  - Python 3.8+ compatible.
+  - Clear docstring and type hints.
+
+### Technical Specifications:
+- Function signature:
+  - def list_split(seq, n: int):
+  - Optionally typed as: from typing import Iterable, List, Any; def list_split(seq: Iterable[Any], n: int) -> List[List[Any]]:
+- Parameter details:
+  - seq: The input list or iterable to split. If not a list, the function will convert it to a list once for consistent slicing behavior.
+  - n: Chunk size; must be an integer > 0 and not a bool.
+- Validation:
+  - If not isinstance(n, int) or isinstance(n, bool): raise TypeError("n must be an integer greater than 0")
+  - If n <= 0: raise ValueError("n must be greater than 0")
+- Behavior:
+  - Convert seq to a list: items = list(seq)
+  - Create chunks via slicing in steps of n:
+    - chunks = [items[i:i+n] for i in range(0, len(items), n)]
+  - Return chunks
+- Error handling:
+  - TypeError for non-integer n (including float, str, None, and bool).
+  - ValueError for n <= 0.
+- Algorithm:
+  - items = list(seq)
+  - if n invalid -> raise appropriate error
+  - return [items[i:i+n] for i in range(0, len(items), n)]
+- Complexity:
+  - Time: O(m) where m = len(seq)
+  - Space: O(m) for output plus O(m) if seq is converted from an iterable
+- Examples:
+  - list_split(['a','b','c','d','e','f','g','h','i','j','k','l','m','n'], 3)
+    -> [['a','b','c'], ['d','e','f'], ['g','h','i'], ['j','k','l'], ['m','n']]
+  - list_split([], 3) -> []
+  - list_split([1,2,3], 1) -> [[1],[2],[3]]
+  - list_split([1,2], 5) -> [[1,2]]
+- Testing requirements (minimal):
+  - test_basic_chunking: normal case with perfect multiples
+  - test_remainder_chunk: last chunk shorter than n
+  - test_empty_input: returns []
+  - test_n_equals_one: single-element chunks
+  - test_n_greater_than_len: single chunk equals input
+  - test_invalid_n_type: n is float/str/bool -> TypeError
+  - test_invalid_n_value: n <= 0 -> ValueError
+  - test_iterable_input: input as tuple or generator works
+- Documentation:
+  - Include a docstring describing parameters, return value, examples, and raised exceptions.
+- Coding standards:
+  - No external dependencies
+  - Pure function (no side effects)
+  - Clear naming and type hints
+  - Compatible with Python 3.8+
+ Code compilation result: Code execution error: illegal target for annotation (<string>, line 2)
+----END MESSAGE----
+
+C0002 say to All: ### Implementation Discussion:
+- Goal: Split a list (or any iterable) into consecutive sublists of size n, preserving order. The last chunk may be shorter.
+- Validation: n must be an integer greater than 0. Reject bool (since bool is a subclass of int) and non-integers with TypeError; non-positive with ValueError.
+- Approach: Convert input to a list to support any iterable and avoid mutating the original. Use slicing with a range step of n.
+- Complexity: O(len(seq)) time and O(len(seq)) additional space for the result.
+
+### Code Solution:
+from typing import Iterable, List, TypeVar
+
+T = TypeVar('T')
+
+def list_split(seq: Iterable[T], n: int) -> List[List[T]]:
+    """
+    Split an iterable (commonly a list) into consecutive sublists of length n.
+    The last sublist may be shorter if len(seq) is not a multiple of n.
+
+    Args:
+        seq: The input iterable to split (e.g., a list).
+        n: The chunk size; must be a positive integer.
+
+    Returns:
+        A list of lists with the original order preserved.
+
+    Raises:
+        TypeError: If n is not an integer (or is a bool).
+        ValueError: If n <= 0.
+
+    Example:
+        >>> list_split(['a','b','c','d','e','f','g','h','i','j','k','l','m','n'], 3)
+        [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i'], ['j', 'k', 'l'], ['m', 'n']]
+    """
+    if isinstance(n, bool) or not isinstance(n, int):
+        raise TypeError("n must be an integer greater than 0")
+    if n <= 0:
+        raise ValueError("n must be greater than 0")
+
+    items = list(seq)
+    return [items[i:i + n] for i in range(0, len(items), n)]
+
+
+# Example usage:
+if __name__ == "__main__":
+    print(list_split(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'], 3))
+    # Output:
+    # [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i'], ['j', 'k', 'l'], ['m', 'n']]
+ Code compilation result: Code execution error: illegal target for annotation (<string>, line 2)
+----END MESSAGE----
+
+C0003 say to All: ### Critical Analysis:
+- Ambiguity in phrasing: “split a list for every nth element” can be misread as selecting every nth element (l[::n]) rather than chunking into consecutive sublists of size n. The example implies chunking: [['a','b','c'], ['d','e','f'], ...].
+- Input type: The problem says “list”, but it’s safer and more reusable to accept any iterable and materialize it into a list internally. If strictly a list is required, that should be stated.
+- Validation of n: Must be a positive integer. Reject 0 or negatives with ValueError, and reject non-integers (including bool, which is a subclass of int) with TypeError. This is a common source of silent bugs if not handled explicitly.
+- Correctness pitfalls:
+  - Using l[::n] is incorrect (selects every nth element, not chunking).
+  - Off-by-one errors with ranges if slicing indices aren’t used properly.
+- Performance and memory:
+  - Converting an arbitrary iterable to a list consumes memory proportional to its length; acceptable for lists and moderate sizes. For large streams, a generator-based chunker avoids loading everything into memory.
+- Output type consistency: Return a list of lists so the function has a predictable return type regardless of input (e.g., tuple input still returns list-of-lists).
+- Robustness: Include clear error messages and a docstring. Avoid non-ASCII characters and unnecessary type annotations to prevent parsing issues in strict environments.
+
+### Improvement Suggestions:
+- Implement a robust, simple solution using slicing over a materialized list. Provide an optional generator variant for large or streaming inputs.
+- Include explicit input validation and concise, informative errors.
+- Add minimal examples covering common edge cases.
+
+Proposed implementation (eager, returns list of lists):
+def list_split(iterable, n):
+    """
+    Split the given iterable into consecutive sublists of size n.
+    The last sublist may contain fewer than n elements.
+
+    Args:
+        iterable: Any iterable (e.g., list, tuple, generator).
+        n: Positive integer chunk size (must be > 0 and not a bool).
+
+    Returns:
+        List of lists, where each inner list has up to n elements.
+
+    Raises:
+        TypeError: If n is not an int or is a bool.
+        ValueError: If n <= 0.
+    """
+    if isinstance(n, bool) or not isinstance(n, int):
+        raise TypeError("n must be an int > 0 (bool is not allowed)")
+    if n <= 0:
+        raise ValueError("n must be > 0")
+
+    lst = list(iterable)
+    return [lst[i:i + n] for i in range(0, len(lst), n)]
+
+Optional memory-efficient generator variant (for very large inputs):
+def list_split_iter(iterable, n):
+    if isinstance(n, bool) or not isinstance(n, int):
+        raise TypeError("n must be an int > 0 (bool is not allowed)")
+    if n <= 0:
+        raise ValueError("n must be > 0")
+
+    it = iter(iterable)
+    while True:
+        chunk = []
+        try:
+            for _ in range(n):
+                chunk.append(next(it))
+        except StopIteration:
+            if chunk:
+                yield chunk
+            break
+        yield chunk
+
+Example usage and expected output:
+- list_split(['a','b','c','d','e','f','g','h','i','j','k','l','m','n'], 3)
+  -> [['a','b','c'], ['d','e','f'], ['g','h','i'], ['j','k','l'], ['m','n']]
+- list_split([1,2,3], 1) -> [[1],[2],[3]]
+- list_split([1,2,3], 5) -> [[1,2,3]]
+- list_split([], 3) -> []
+
+Basic edge-case tests to include:
+- Raises TypeError: list_split([1,2,3], True), list_split([1,2,3], 2.0), list_split([1,2,3], "3")
+- Raises ValueError: list_split([1,2,3], 0), list_split([1,2,3], -2)
+ Code compilation result: Code execution error: invalid character '“' (U+201C) (<string>, line 2)
+----END MESSAGE----
+
+C0001 say to All: ### Requirement Analysis:
+- Objective: Provide a function named list_split that splits a list into consecutive sublists of size n.
+- Primary behavior:
+  - Input is a list (may optionally allow any iterable) and a positive integer n.
+  - The function returns a list of lists, where each inner list has up to n elements.
+  - The original order of elements is preserved.
+  - The final chunk may contain fewer than n elements if the total length is not divisible by n.
+  - The input should not be mutated.
+- Example:
+  - list_split(['a','b','c','d','e','f','g','h','i','j','k','l','m','n'], 3)
+    -> [['a','b','c'], ['d','e','f'], ['g','h','i'], ['j','k','l'], ['m','n']]
+- Edge cases:
+  - Empty list -> return [].
+  - n greater than list length -> return [list] if list is non-empty.
+- Error handling:
+  - n must be an int strictly greater than 0.
+  - If n is not an int or is a bool, raise TypeError.
+  - If n <= 0, raise ValueError.
+  - If the input is not iterable (e.g., None), raise TypeError.
+
+### Technical Specifications:
+- Language/Runtime: Python 3.8+.
+- Function signature:
+  - def list_split(seq, n): -> list
+  - Accept any iterable as seq for flexibility, but must work correctly for lists per the problem statement.
+- Algorithm:
+  - Validate parameter n:
+    - if isinstance(n, bool) or not isinstance(n, int): raise TypeError("n must be an integer")
+    - if n <= 0: raise ValueError("n must be > 0")
+  - Validate seq is iterable; if not, raise TypeError.
+  - Convert seq to a list internally to support slicing and to consume iterators safely.
+  - Use slicing with a step of n:
+    - chunks = [data[i:i+n] for i in range(0, len(data), n)]
+  - Return the list of chunks.
+- Complexity:
+  - Time: O(len(seq))
+  - Space: O(len(seq)) due to internal list conversion and output chunks.
+- Output:
+  - A list of lists (each chunk is a new list), preserving original order.
+- Do not mutate the input sequence.
+- Docstring (to include in implementation):
+  - Describe purpose, parameters, return type, raised exceptions, and example usage.
+- Example test cases:
+  - list_split(['a','b','c','d','e','f','g','h','i','j','k','l','m','n'], 3) -> [['a','b','c'], ['d','e','f'], ['g','h','i'], ['j','k','l'], ['m','n']]
+  - list_split([], 3) -> []
+  - list_split([1,2,3], 1) -> [[1], [2], [3]]
+  - list_split([1,2], 5) -> [[1,2]]
+  - list_split([1,2,3,4], 2) -> [[1,2], [3,4]]
+  - Errors:
+    - list_split([1,2,3], 0) -> ValueError
+    - list_split([1,2,3], -2) -> ValueError
+    - list_split([1,2,3], 2.5) -> TypeError
+    - list_split([1,2,3], True) -> TypeError
+    - list_split(None, 2) -> TypeError
+ Code compilation result: Code execution error: illegal target for annotation (<string>, line 2)
+----END MESSAGE----
+
+C0002 say to All: ### Implementation Discussion:
+- The function splits an input iterable into consecutive sublists (chunks) of size n, preserving order. The last chunk may be shorter.
+- Input validations:
+  - n must be an integer and not a boolean (since bool is a subclass of int in Python).
+  - n must be greater than 0.
+- The input is converted to a list to support any iterable and to avoid mutating the original input.
+- Returns a list of lists.
+
+### Code Solution:
+```python
+from typing import Iterable, List, TypeVar
+
+T = TypeVar("T")
+
+def list_split(iterable: Iterable[T], n: int) -> List[List[T]]:
+    """
+    Split an iterable into consecutive chunks of size n, preserving order.
+
+    Args:
+        iterable: Any iterable of elements.
+        n: Size of each chunk; must be an integer greater than 0.
+
+    Returns:
+        A list of lists, where each inner list has up to n elements.
+
+    Raises:
+        TypeError: If n is not an int (bool is not allowed).
+        ValueError: If n <= 0.
+
+    Examples:
+        >>> list_split(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'], 3)
+        [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i'], ['j', 'k', 'l'], ['m', 'n']]
+        >>> list_split([], 3)
+        []
+        >>> list_split([1, 2], 5)
+        [[1, 2]]
+    """
+    if isinstance(n, bool) or not isinstance(n, int):
+        raise TypeError("n must be an integer greater than 0")
+    if n <= 0:
+        raise ValueError("n must be greater than 0")
+
+    data = list(iterable)  # ensure we can slice and avoid mutating the input
+    return [data[i:i + n] for i in range(0, len(data), n)]
+
+
+# Example usage
+if __name__ == "__main__":
+    result = list_split(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'], 3)
+    print(result)
+    # Output: [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i'], ['j', 'k', 'l'], ['m', 'n']]
+```
+ Code compilation result: Code execution error: invalid syntax (<string>, line 2)
+----END MESSAGE----
+
+C0003 say to All: ### Critical Analysis:
+- Functionality: The implementation correctly chunks the input into consecutive groups of size n and matches the example output. Edge cases like empty input, n larger than the sequence length, and last chunk shorter than n are handled naturally.
+- Validation:
+  - Good: Explicitly rejects bool, since bool is a subclass of int.
+  - Potential issue: Only accepts built-in int; this rejects other integral types (e.g., numpy.int64) that are semantically valid.
+  - Error message for TypeError includes “> 0,” which is unrelated to type and can confuse users since the ValueError addresses the range check separately.
+- Performance/Memory:
+  - Converts seq to a list up front, which forces full materialization of the iterable. This is unnecessary for large or streaming inputs and increases memory usage.
+  - Chunking by slicing copies sublists, which is expected when returning lists, but the initial full copy is avoidable.
+- API/Clarity:
+  - Accepts any iterable but is named for lists; this is fine but should be documented.
+  - Missing docstring and type hints.
+- Robustness: Works for typical cases; lacks tests and documentation.
+
+### Improvement Suggestions:
+- Broaden integer acceptance and clarify errors:
+  - Use numbers.Integral to allow other integer-like types while still rejecting bool.
+  - Separate and clarify error messages for type vs. value.
+- Avoid materializing the entire input:
+  - Iterate and slice using itertools.islice to build chunks without converting the whole seq to a list first. This improves memory usage for generators and large inputs.
+- Add type hints and a docstring to document behavior and examples.
+- Optional: Provide a generator variant (e.g., list_split_iter) for truly streaming use-cases. Keep list_split returning a list to match the example/spec.
+
+Suggested improved implementation:
+from typing import Iterable, List, TypeVar
+import itertools
+import numbers
+
+T = TypeVar("T")
+
+def list_split(seq: Iterable[T], n: int) -> List[List[T]]:
+    """
+    Split an iterable into consecutive chunks of size n.
+    Returns a list of lists; the last chunk may be shorter.
+
+    Example:
+        list_split(['a','b','c','d','e','f','g','h','i','j','k','l','m','n'], 3)
+        -> [['a','b','c'], ['d','e','f'], ['g','h','i'], ['j','k','l'], ['m','n']]
+    """
+    if isinstance(n, bool) or not isinstance(n, numbers.Integral):
+        raise TypeError("n must be an integer")
+    if n <= 0:
+        raise ValueError("n must be > 0")
+
+    it = iter(seq)
+    result: List[List[T]] = []
+    while True:
+        chunk = list(itertools.islice(it, int(n)))
+        if not chunk:
+            break
+        result.append(chunk)
+    return result
+
+Notes:
+- This version handles any iterable efficiently, avoids full pre-copy of seq, and still returns a list of lists.
+- If you need a streaming API, consider adding:
+  - list_split_iter(seq, n) that yields chunks one-by-one.
+ Code compilation result: Code execution error: invalid character '“' (U+201C) (<string>, line 6)
+----END MESSAGE----
+
+C0001 say to All: ### Requirement Analysis:
+- Goal: Implement a function that splits a list into consecutive chunks of size n, where the last chunk may be shorter if the list length is not divisible by n.
+- Function name: list_split
+- Primary input: a list (or any iterable, for robustness).
+- Secondary input: n, the chunk size.
+- Output: list of lists, preserving the original element order; no mutation of the input.
+- Error handling:
+  - Raise TypeError if n is not an integer or is a boolean.
+  - Raise ValueError if n <= 0.
+- Edge cases:
+  - Empty input list -> return [].
+  - n == 1 -> each element becomes its own sublist.
+  - n >= len(list) and list not empty -> return [list].
+- Constraints:
+  - Python 3.8+.
+  - Time complexity O(len(input)).
+  - Do not mutate the input.
+  - Deterministic behavior.
+- Example:
+  - list_split(['a','b','c','d','e','f','g','h','i','j','k','l','m','n'], 3) returns [['a','b','c'], ['d','e','f'], ['g','h','i'], ['j','k','l'], ['m','n']]
+
+### Technical Specifications:
+- Signature:
+  - def list_split(seq, n):
+  - Parameters:
+    - seq: Iterable (commonly a list). If not a list, convert to list internally to support single-pass iterables.
+    - n: int, must be positive; bool is not allowed.
+  - Returns: List[List[Any]]
+- Validation:
+  - if isinstance(n, bool) or not isinstance(n, int): raise TypeError("n must be an int")
+  - if n <= 0: raise ValueError("n must be a positive integer")
+- Behavior:
+  - Convert seq to a list: items = list(seq)
+  - If items is empty: return []
+  - Build chunks using slicing in a loop: [items[i:i+n] for i in range(0, len(items), n)]
+  - Ensure the last chunk may be shorter.
+- Complexity:
+  - Time: O(len(seq))
+  - Space: O(len(seq)) for the copy and output structure
+- Mutability:
+  - Do not modify the input object.
+- Examples for verification:
+  - list_split([], 3) -> []
+  - list_split([1,2,3,4,5], 2) -> [[1,2],[3,4],[5]]
+  - list_split([1,2,3], 1) -> [[1],[2],[3]]
+  - list_split([1,2,3], 3) -> [[1,2,3]]
+  - list_split([1,2,3], 5) -> [[1,2,3]]
+  - list_split('abcdef', 2) -> [['a','b'],['c','d'],['e','f']] (after converting to list)
+  - list_split([1,2,3], True) -> TypeError
+  - list_split([1,2,3], 0) -> ValueError
+  - list_split([1,2,3], -2) -> ValueError
+- Testing notes:
+  - Include tests for type validation, boundary values, typical cases, and non-list iterables.
+- Compatibility:
+  - Python 3.8+, no external dependencies, ASCII-only code.
+ Code compilation result: Code execution error: expected 'else' after 'if' expression (<string>, line 2)
+----END MESSAGE----
+

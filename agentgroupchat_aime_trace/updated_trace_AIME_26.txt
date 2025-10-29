@@ -1,0 +1,164 @@
+C0003 say to All: ### Context Analysis:
+- Torus T: surface of revolution of a circle (tube radius r = 3) whose center traces a circle of radius R = 6 about the z-axis.
+- Sphere S: radius S = 11; its center can shift along the torus axis (z-axis) to achieve tangency.
+- For tangency along a horizontal circle (revolution symmetry), reduce to the ρ–z meridional plane:
+  - Torus generating circle: center at (R, 0), radius r.
+  - Sphere cross-section: circle centered at (0, a), radius S.
+- Tangency of circles in 2D requires the line of centers passes through the point of tangency and the center distance d satisfies d = S ± r:
+  - Internal tangency (torus inside sphere): d = S − r.
+  - External tangency (torus outside sphere): d = S + r.
+- The radius of the 3D tangency circle equals the cylindrical radius ρ of the tangency point in the meridional plane. For circle-circle tangency, that ρ-coordinate is ρ = (S R)/d (since the tangency point is S units from the sphere center along the line toward the torus circle center).
+
+### Key Information Summary:
+- Parameters: R = 6, r = 3, S = 11.
+- Center distance: d = sqrt(R^2 + a^2) = S ± r.
+  - Internal: d_i = S − r = 8.
+  - External: d_o = S + r = 14.
+- Tangency circle radii:
+  - r_i = (S R)/(S − r) = (11·6)/8 = 33/4.
+  - r_o = (S R)/(S + r) = (11·6)/14 = 33/7.
+----END MESSAGE----
+
+C0002 say to All: ### Logical Reasoning:
+- Represent the torus T (major radius R = 6, tube radius r = 3) and sphere S (radius S = 11) as surfaces of revolution about the z-axis.
+- In the meridional (x–z) plane, the torus becomes the generating circle centered at A = (R, 0) with radius r, and the sphere becomes a circle centered at B = (0, a) with radius S. Let d = |AB| = sqrt(R^2 + a^2).
+- Tangency along a circle (axisymmetric contact) occurs exactly when these two circles in the meridional plane are tangent:
+  - Internal tangency (torus inside sphere): d = S − r = 11 − 3 = 8.
+  - External tangency (torus outside sphere): d = S + r = 11 + 3 = 14.
+- The tangency point P lies on the line AB. For both cases, P = B + S·u where u is the unit vector from B to A, so its x-coordinate (cylindrical radius ρ) is:
+  ρ = x(P) = S·(R/d) = (S R)/d.
+- Therefore:
+  - Internal: r_i = (S R)/d_i = (11·6)/8 = 33/4.
+  - External: r_o = (S R)/d_o = (11·6)/14 = 33/7.
+
+### Proof Structure:
+1. Set coordinates: torus generator circle centered at (R, 0) with radius r; sphere cross-section circle centered at (0, a) with radius S.
+2. Axisymmetric tangency ↔ tangency of the two circles in the meridional plane, giving d = |(R, 0) − (0, a)| equals S ± r.
+3. For internal tangency: d_i = S − r = 8; for external tangency: d_o = S + r = 14.
+4. The tangency point on the sphere is P = B + S·u with u = (A − B)/d, so its cylindrical radius is ρ = S R / d.
+5. Compute:
+   - r_i = 11·6 / 8 = 33/4.
+   - r_o = 11·6 / 14 = 33/7.
+----END MESSAGE----
+
+C0004 say to All: ### Calculations: 
+- Torus parameters: major radius R = 6, tube radius r = 3. Sphere radius S = 11.
+- In the meridional (ρ,z)-plane: torus cross-section circle center at (R,0), sphere center at (0,a). Center distance d = sqrt(R^2 + a^2).
+- Tangency conditions: internal d_i = S − r = 8; external d_o = S + r = 14.
+- Radius of tangency circle equals cylindrical radius at tangency: ρ = (S R)/d.
+- Internal: r_i = (S R)/d_i = (11·6)/8 = 33/4.
+- External: r_o = (S R)/d_o = (11·6)/14 = 33/7.
+- Difference: r_i − r_o = 33/4 − 33/7 = 33·(3/28) = 99/28 = m/n with gcd(99,28)=1.
+- m + n = 99 + 28 = 127.
+
+### Numerical Results: 127
+----END MESSAGE----
+
+C0001 say to All: ### Error Analysis: The geometric setup is consistent: in the meridional (ρ,z) plane, the torus cross-section is a circle centered at (R,0) with radius r, and the sphere’s cross-section is a circle centered at (0,a) with radius S. Tangency conditions give d = S − r (internal) and d = S + r (external), where d = sqrt(R^2 + a^2) is the distance between centers. The radius of the tangent circle equals the cylindrical radius ρ of the contact point, which is ρ = (S R)/d; this follows from projecting the vector from the sphere center to the contact point onto the ρ-axis and holds for both internal and external tangency. Computations: ri = (11·6)/8 = 33/4, ro = (11·6)/14 = 33/7, hence ri − ro = 33/4 − 33/7 = 99/28 (already in lowest terms). No errors detected.
+### Corrections: None needed. Final result m + n = 99 + 28 = 127.
+----END MESSAGE----
+
+C0005 say to All: ### Solution Verification: 
+- Let the torus have major radius R=6 and minor radius r=3. The sphere has radius S=11.
+- In the meridional (ρ,z) plane, the torus cross-section is the circle (ρ−R)^2+(z−c)^2=r^2 with center A=(R,c), and the sphere is ρ^2+z^2=S^2 with center O=(0,0).
+- For tangency (internal or external), the center distance D=|OA|=sqrt(R^2+c^2) must satisfy D=S−r (internal) or D=S+r (external). This determines c but more importantly gives D.
+- The tangency point T lies along OA with OT=S. Hence T = (S/D)·A, so its cylindrical radius is ρ_T = (S/D)·R.
+- Therefore the radius of the circle of tangency on the sphere is r_circle = ρ_T = (S R)/D.
+- Thus:
+  - Internal tangency: D=S−r ⇒ r_i = (S R)/(S−r) = (11·6)/(11−3) = 66/8 = 33/4.
+  - External tangency: D=S+r ⇒ r_o = (S R)/(S+r) = (11·6)/(11+3) = 66/14 = 33/7.
+- The derivation and values r_i=33/4 and r_o=33/7 are correct.
+
+### Correctness Confirmation: Verified as correct.
+----END MESSAGE----
+
+C0003 say to All: ### Context Analysis:
+- We have a standard torus T formed by revolving a circle of radius r = 3 about an axis in its plane at distance R = 6 from the circle’s center (so major radius R = 6, minor radius r = 3).
+- A sphere S has radius S = 11.
+- T is tangent to S along a circle in two configurations:
+  - Internal tangency (torus inside sphere), with circle radius r_i.
+  - External tangency (torus outside sphere), with circle radius r_o.
+- In a meridional cross-section (plane containing the torus axis), the torus appears as two circles of radius r centered at (±R, 0), and the sphere appears as a circle of radius S centered at (0, h) on the axis.
+- Tangency along a circle in 3D corresponds to tangency in this 2D cross-section between the sphere’s circle and each of the torus’s cross-section circles at symmetric points.
+
+### Key Information Summary:
+- Center distance in cross-section between the sphere center O(0, h) and a torus circle center C(±R, 0) must be:
+  - Internal tangency: d_i = S − r = 11 − 3 = 8.
+  - External tangency: d_o = S + r = 11 + 3 = 14.
+- The radius of the circle of tangency on the sphere equals r_circle = (S·R)/d.
+  - r_i = (11·6)/8 = 66/8 = 33/4.
+  - r_o = (11·6)/14 = 66/14 = 33/7.
+- Difference: r_i − r_o = 33/4 − 33/7 = 99/28 = m/n with m = 99, n = 28, so m + n = 127.
+----END MESSAGE----
+
+C0002 say to All: ### Logical Reasoning:
+- Let the torus have major radius R = 6 and tube radius r = 3. Sphere radius is S = 11.
+- Align the torus axis with the sphere’s axis (z-axis), but allow the sphere center to be vertically offset so that the surfaces are tangent along a circle.
+- In any meridional (ρ–z) plane, the torus is the circle centered at (R, 0) with radius r, and the sphere is the circle centered at (0, a) with radius S. Let D be the distance between these centers.
+- Tangency of the surfaces corresponds to tangency of these two circles in the plane, so:
+  - Internal tangency (torus inside sphere): D = S − r.
+  - External tangency (torus outside sphere): D = S + r.
+- The point of tangency P lies on the line joining the centers and equals P = C_s + (S/D)(C_t − C_s). Hence its cylindrical radius is ρ = SR/D.
+- Therefore:
+  - r_i = ρ_i = SR/(S − r)
+  - r_o = ρ_o = SR/(S + r)
+- With S = 11, R = 6, r = 3:
+  - r_i = 66/8 = 33/4
+  - r_o = 66/14 = 33/7
+- Difference: r_i − r_o = 33/4 − 33/7 = 99/28, which is in lowest terms. Thus m + n = 99 + 28 = 127.
+
+### Proof Structure:
+1. Model in the meridional plane: torus circle center C_t = (R, 0), radius r; sphere circle center C_s = (0, a), radius S.
+2. Tangency condition: distance between centers D equals S − r (internal) or S + r (external).
+3. Tangency point P lies on the line C_sC_t at distance S from C_s toward C_t, hence P = C_s + (S/D)(C_t − C_s).
+4. The tangency circle radius (cylindrical radius) is ρ = SR/D.
+5. Compute:
+   - r_i = SR/(S − r) = 66/8 = 33/4
+   - r_o = SR/(S + r) = 66/14 = 33/7
+   - r_i − r_o = 33/4 − 33/7 = 99/28
+6. Conclude m/n = 99/28, so m + n = 127.
+
+127
+----END MESSAGE----
+
+C0004 say to All: ### Calculations: 
+- Let R=6, r=3, S=11. In cylindrical coordinates, the torus satisfies (ρ−R)^2+z^2=r^2 and the sphere satisfies ρ^2+z^2=S^2.
+- Tangency along a circle at radius ρ requires the line from the sphere’s center to the point be colinear with the torus normal. This yields S = |rρ/(ρ−R)|, hence:
+  S(ρ−R) = ± rρ → 
+  - Internal tangency (plus): (S−r)ρ = SR → r_i = SR/(S−r) = 11·6/8 = 33/4
+  - External tangency (minus): (S+r)ρ = SR → r_o = SR/(S+r) = 11·6/14 = 33/7
+- Difference: r_i − r_o = 33/4 − 33/7 = 33(7−4)/28 = 99/28, so m=99, n=28, m+n=127.
+
+### Numerical Results: 127
+----END MESSAGE----
+
+C0001 say to All: ### Error Analysis: The geometric modeling is sound. In the meridional (ρ-z) plane, the sphere is the circle ρ^2 + z^2 = S^2 and the torus profile is (ρ - R)^2 + z^2 = r^2. For tangency, the distance between centers must be d = S ± r, which is achieved by translating the sphere center along the z-axis so that d = sqrt(R^2 + a^2). This yields d_i = 8 and d_o = 14. The radius of the tangency circle on the sphere is the cylindrical radius ρ at the tangency point, given by ρ = SR/d. Thus r_i = 66/8 = 33/4 and r_o = 66/14 = 33/7. The difference is 33/4 − 33/7 = 99/28, already in lowest terms, giving m + n = 99 + 28 = 127. No logical or computational errors detected.
+
+### Corrections: None.
+----END MESSAGE----
+
+C0005 say to All: ### Solution Verification: 
+Let the torus have major radius R = 6 and minor radius a = 3. Parameterize the torus by θ (tube angle) and φ (azimuth). A parallel circle on the torus has coordinates:
+- ρ = R + a cos θ
+- z = a sin θ
+
+The unit normal at such a point is proportional to cos θ e_ρ + sin θ e_z. For a sphere to be tangent along this entire circle, its center must lie on the z-axis and on the normal lines for all φ, which forces the sphere center to be at z = C_z = −R tan θ. The sphere radius S then satisfies:
+S^2 = ρ^2 + (C_z − z)^2
+which simplifies to S cos θ = ±(R + a cos θ).
+
+This yields two cases:
+- External tangency: S cos θ = R + a cos θ -> cos θ = R/(S − a), giving r_o = ρ = R + a cos θ = R S/(S − a).
+- Internal tangency: S cos θ = −(R + a cos θ) -> cos θ = −R/(S + a), giving r_i = ρ = R + a cos θ = R S/(S + a).
+
+Thus,
+r_i − r_o = R S/(S + a) − R S/(S − a) = −2 a R S/(S^2 − a^2).
+
+Substitute R = 6, a = 3, S = 11:
+r_i − r_o = −(2·3·6·11)/(121 − 9) = −396/112 = −99/28.
+
+Hence |r_i − r_o| = 99/28, so m + n = 99 + 28 = 127.
+
+### Correctness Confirmation: 
+The geometric setup and normal-line condition are correctly applied, the algebra simplifies consistently to the clean identity S cos θ = ±(R + a cos θ), and the final numeric evaluation yields 99/28. The requested sum m + n is 127.
+----END MESSAGE----
+

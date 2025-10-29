@@ -1,0 +1,83 @@
+C0003 say to All: ### Context Analysis: 
+We have two rectangles ABCD and EFGH. The points D, E, C, F are collinear, and A, D, H, G lie on a common circle. Side lengths: AB=107, BC=16 for rectangle ABCD; EF=184, FG=17 for rectangle EFGH. The task is to find the integer length CE. A coordinate setup is natural: place ABCD axis-aligned with DC horizontal, then place E and F on line DC. For EFGH to be a rectangle with EF horizontal and FG vertical, G and H are vertically offset from the line DC by 17 units (either above or below). The cyclic condition on A, D, H, G imposes an equation linking the x-position t of E (and hence F) and the vertical offset y of G and H.
+
+### Key Information Summary: 
+- Set coordinates: A(0,0), B(107,0), C(107,16), D(0,16); DC is y=16.
+- Let E(t,16), F(t+184,16) so EF=184 is horizontal.
+- Rectangle EFGH implies FG vertical of length 17: y-coordinate of G,H is y=33 (above) or y=-1 (below).
+- Circle through A and D has form x^2 + y^2 + u x - 16 y = 0. Imposing G,H on the circle yields the relation t(t+184) = y(y-16).
+- Case y=33: y(y-16)=33·17=561 → t(t+184)=561 → t=3 or -187. Taking E between D and C (0≤t≤107) gives t=3.
+- Hence CE = Cx − Ex = 107 − 3 = 104.
+- Case y=-1 gives non-integer t and thus non-integer CE; the integer-consistent configuration is y=33 with CE=104.
+----END MESSAGE----
+
+C0002 say to All: ### Logical Reasoning:
+- Place rectangle ABCD with A(0,0), B(107,0), C(107,16), D(0,16) to match AB=107 and BC=16.
+- Since D, E, C, F are collinear along DC (y=16), set E(t,16) and F(t+184,16) because EF=184 is horizontal.
+- Rectangle EFGH has FG=17 vertical, so G and H have y = 16 ± 17, i.e., y = 33 or y = -1.
+- Impose the cyclic condition that A, D, H, G lie on a circle. Using the general circle x^2 + y^2 + ux + vy + w = 0, plugging A(0,0) gives w=0, D(0,16) gives v=-16.
+- Plugging H(t,y) and G(t+184,y) and subtracting yields u = -2t - 184. Substituting back gives the cyclic condition:
+  t^2 + 184t = y^2 - 16y.
+- Case y=33: RHS = 1089 - 528 = 561, so t^2 + 184t - 561 = 0 with discriminant 36100 = 190^2, giving t = 3 or t = -187.
+- Case y=-1: RHS = 1 + 16 = 17, so t^2 + 184t - 17 = 0 with non-square discriminant, yielding non-integer t.
+- The configuration typically intended has D < E < C < F along the line, selecting t=3 (not t=-187, which places E left of D). Then CE = 107 - 3 = 104.
+
+### Proof Structure:
+1. Coordinate setup:
+   - ABCD: A(0,0), B(107,0), C(107,16), D(0,16).
+   - E(t,16), F(t+184,16); G(t+184, 16±17), H(t, 16±17).
+2. Circle through A, D, H, G:
+   - Circle: x^2 + y^2 + ux + vy = 0 with v = -16, u = -2t - 184.
+   - Condition from H: t^2 + 184t = y^2 - 16y.
+3. Evaluate y:
+   - y = 33 ⇒ t ∈ {3, -187}.
+   - y = -1 ⇒ t non-integer (discard).
+4. Choose ordering D < E < C < F ⇒ t = 3.
+5. Compute CE = |107 - t| = 104.
+----END MESSAGE----
+
+C0004 say to All: ### Calculations:
+- Place rectangle ABCD with A(0,0), B(107,0), C(107,16), D(0,16). Thus BC=16 and AB=107.
+- Since D, E, C, F are collinear on y=16, let E = (t,16), F = (t+184,16).
+- Rectangle EFGH has FG = 17 vertical, so G and H have y = 16 ± 17 → Y ∈ {33, -1}. Thus:
+  - If up: G = (t+184,33), H = (t,33).
+  - If down: G = (t+184,-1), H = (t,-1).
+- A, D, H, G are concyclic. The circle through A(0,0) and D(0,16) has equation x^2 + y^2 + ux - 16y = 0.
+- Imposing H(t,Y) and G(t+184,Y) on the circle:
+  - Subtracting the two equations gives u = -2t - 184.
+  - Using H: t^2 + Y^2 + u t - 16Y = 0 → t^2 + 184t = Y^2 - 16Y.
+- Evaluate RHS:
+  - For Y = 33: Y^2 - 16Y = 1089 - 528 = 561 → t^2 + 184t - 561 = 0.
+    - Discriminant Δ = 184^2 + 4·561 = 33856 + 2244 = 36100 = 190^2.
+    - t = (-184 ± 190)/2 → t = 3 or t = -187.
+  - For Y = -1: Y^2 - 16Y = 1 + 16 = 17 → t^2 + 184t - 17 = 0.
+    - Δ = 184^2 + 68 = 33856 + 68 = 33924 (not a perfect square), giving non-integer t.
+- Use the natural ordering D, E, C, F along the line: 0 = x_D < x_E = t < x_C = 107 < x_F = t+184.
+  - This selects t = 3 (since t = -187 violates order; t+184 = -3 < 107).
+- Therefore, CE = x_C − x_E = 107 − 3 = 104.
+
+### Numerical Results:
+104
+----END MESSAGE----
+
+C0005 say to All: ### Solution Verification: 
+Set coordinates: A(0,0), B(107,0), C(107,16), D(0,16). Let E(x,16), F(x+184,16) so EF=184. Since FG=17 and rectangle EFGH is perpendicular to EF, take G(x+184, 16±17) and H(x, 16±17). Because A, D, G, H are concyclic and the perpendicular bisector of AD is y=8, the circle’s center is (x+92, 8). Using H on the circle gives:
+(x − (x+92))^2 + (y_H − 8)^2 = 92^2 + 64 ⇒ x^2 + 184x + 64 − (y_H − 8)^2 = 0.
+For y_H = 33 (upward), (y_H − 8)^2 = 625, yielding x^2 + 184x − 561 = 0 with solutions x = 3 or x = −187. The ordering “D, E, C, F” along the line implies E is between D(0) and C(107), so x = 3. Then CE = 107 − 3 = 104. Check: center (95, 8); A, D, H(3,33), G(187,33) all satisfy r^2 = 9089, so the concyclicity holds. The other orientation y_H = −1 gives non-integer and/or misordered solutions for E relative to D and C.
+
+### Correctness Confirmation: 
+All geometric constraints are satisfied and CE is an integer. Final answer: 104.
+----END MESSAGE----
+
+C0001 say to All: ### Error Analysis: 
+- Set ABCD with A(0,0), B(107,0), C(107,16), D(0,16). Since D,E,C, F are collinear, place E(x,16), F(x+184,16). For EFGH a rectangle with FG=17, G and H lie on y = 16 ± 17, i.e., y0 = 33 or y0 = -1.
+- Circle through A(0,0) and D(0,16) has center (h,8). Concyclic condition for H(x, y0) and G(x+184, y0) gives:
+  x^2 + 184x = (y0 - 8)^2 - 64.
+- For y0 = 33: x^2 + 184x - 561 = 0 → discriminant 36100 → x = 3 or -187. The order D,E,C,F favors x = 3 (placing E between D and C). Then CE = 107 - 3 = 104.
+- For y0 = -1: x^2 + 184x - 17 = 0 → non-integer roots, incompatible with the intended integer answer.
+- Consistency check: With x=3, center h = 95; distances to A, D, G, H match, confirming concyclicity.
+
+### Corrections: 
+- No corrections needed. Final answer: 104
+----END MESSAGE----
+

@@ -1,0 +1,123 @@
+C0003 say to All: ### Context Analysis:
+We are modeling “b-eautiful” integers n: two-digit numbers in base b whose two digits x and y sum to √n. Writing n in base b as n = xb + y with 1 ≤ x ≤ b−1 and 0 ≤ y ≤ b−1, the condition x + y = s = √n must hold with s an integer. Substituting y = s − x into s^2 = xb + y yields x(b−1) = s(s−1), i.e., s^2 − s ≡ 0 (mod b−1). The two-digit condition imposes b ≤ n ≤ b^2 − 1, so on s this gives ceil(√b) ≤ s ≤ b−1. Conversely, if s in this range satisfies (b−1) | s(s−1), then x = s(s−1)/(b−1) and y = s − x are valid digits (1 ≤ x ≤ b−1 and 0 ≤ y ≤ b−1), and xb + y = s^2, so n is b-eautiful. Thus counting b-eautiful integers is equivalent to counting integers s in [ceil(√b), b−1] with s(s−1) divisible by b−1.
+
+### Key Information Summary:
+- Two-digit base-b representation: n = xb + y with 1 ≤ x ≤ b−1 and 0 ≤ y ≤ b−1.
+- Let s = √n = x + y ∈ Z; then s^2 = xb + y and y = s − x.
+- Eliminating y gives x(b−1) = s(s−1), so s^2 − s ≡ 0 (mod b−1).
+- Two-digit bound on n implies s ∈ [ceil(√b), b−1].
+- For any s in this range with (b−1) | s(s−1), define x = s(s−1)/(b−1), y = s − x; these are valid digits and xb + y = s^2.
+- Therefore, the count of b-eautiful integers equals the count of s in [ceil(√b), b−1] satisfying s(s−1) ≡ 0 (mod b−1).
+- Solution structure modulo m = b−1: s ≡ 0 or 1 modulo each prime power dividing m; by CRT there are exactly 2^{ω(b−1)} valid residue classes mod m, forming the basis for counting within the interval.
+----END MESSAGE----
+
+C0002 say to All: ### Logical Reasoning:
+- Let n be b-eautiful. Then n has exactly two base-b digits: n = xb + y with 1 ≤ x ≤ b−1 and 0 ≤ y ≤ b−1, and by definition the sum of these two digits equals √n. Set s = √n; the condition is s = x + y and s is an integer.
+- From s^2 = n = xb + y and s = x + y, subtract to obtain s^2 − s = x(b − 1). Hence (b − 1) divides s(s − 1).
+- Conversely, suppose s is an integer with ceil(√b) ≤ s ≤ b − 1 and (b − 1) | s(s − 1). Define x = s(s − 1)/(b − 1) and y = s − x. Then:
+  - xb + y = [s(s − 1)/(b − 1)] b + s − [s(s − 1)/(b − 1)] = s + s(s − 1) = s^2, so n = s^2.
+  - Digit bounds: since s ≥ 2 for b ≥ 3 and (b − 1) | s(s − 1), we have x ≥ 1; also s ≤ b − 1 implies s(s − 1) ≤ (b − 1)(b − 2), so x ≤ b − 2 < b − 1. Moreover, x ≤ s gives y = s − x ≥ 0, and s ≤ b − 1 gives y ≤ b − 1. Thus 1 ≤ x ≤ b − 1 and 0 ≤ y ≤ b − 1.
+  - The sum condition holds: x + y = s = √n.
+- Therefore, b-eautiful integers are exactly those n of the form n = s^2 with s in the range ceil(√b) ≤ s ≤ b − 1 satisfying s(s − 1) ≡ 0 mod (b − 1).
+- The range is necessary and sufficient: since n is two-digit, b ≤ n ≤ b^2 − 1, hence √b ≤ s ≤ b − 1, i.e., s ∈ [ceil(√b), b − 1]. Conversely, any s in this interval yields b ≤ s^2 ≤ b^2 − 1.
+- Counting framework: Let m = b − 1. The congruence s(s − 1) ≡ 0 mod m is equivalent, for each prime power p^e || m, to s ≡ 0 mod p^e or s ≡ 1 mod p^e (since s and s − 1 are coprime). By the Chinese Remainder Theorem, the solution set modulo m consists of exactly 2^{ω(m)} residue classes, where ω(m) is the number of distinct prime factors of m. The number of b-eautiful integers equals the count of s ∈ [ceil(√b), b − 1] lying in this union of residue classes.
+
+### Proof Structure:
+1. Represent a two-digit base-b integer as n = xb + y with digit bounds.
+2. Impose the sum-of-digits condition s = √n = x + y and derive s^2 − s = x(b − 1), yielding (b − 1) | s(s − 1).
+3. Establish the s-range from the two-digit condition: b ≤ s^2 ≤ b^2 − 1 gives ceil(√b) ≤ s ≤ b − 1.
+4. Construct digits from s satisfying the divisibility: x = s(s − 1)/(b − 1), y = s − x, and verify:
+   - xb + y = s^2,
+   - 1 ≤ x ≤ b − 1 and 0 ≤ y ≤ b − 1,
+   - x + y = s.
+5. Conclude equivalence: b-eautiful integers are exactly squares s^2 with s in [ceil(√b), b − 1] and (b − 1) | s(s − 1).
+6. For counting, reduce to congruences modulo m = b − 1; solve via CRT to obtain 2^{ω(m)} residue classes, then count s in the interval lying in these classes.
+----END MESSAGE----
+
+C0004 say to All: ### Calculations:
+- Write any two-digit base-b integer as n = xb + y with 1 ≤ x ≤ b − 1 and 0 ≤ y ≤ b − 1. If n is b-eautiful, then √n is an integer; set s = √n. The condition “digits sum to √n” means s = x + y, and n = s^2 = xb + y.
+- Subtracting gives s^2 − s = x(b − 1). Hence b − 1 divides s(s − 1):
+  s(s − 1) ≡ 0 mod (b − 1).
+- Conversely, if s is an integer with s(s − 1) ≡ 0 mod (b − 1), define
+  x = s(s − 1)/(b − 1), y = s − x = s(b − s)/(b − 1).
+  For s ≤ b − 1, one checks 1 ≤ x ≤ s − 1 and 1 ≤ y ≤ s ≤ b − 1, so x and y are valid digits and n = s^2 = xb + y with x + y = s.
+- Two-digit condition forces b ≤ n = s^2 ≤ b^2 − 1, hence
+  s ∈ [ceil(√b), b − 1].
+- Let m = b − 1 and write m = ∏ p_i^{e_i}. The congruence s(s − 1) ≡ 0 mod m is equivalent to
+  s ≡ 0 or 1 mod p_i^{e_i} for each i.
+  By the Chinese Remainder Theorem this yields exactly 2^{ω(m)} residue classes modulo m, where ω(m) is the number of distinct prime divisors of m.
+- Since the interval [ceil(√b), b − 1] has length less than m, each valid residue class contributes at most one s to this interval. Specifically, among the solution classes R ⊆ {0,1,…,m−1} (|R| = 2^{ω(m)}), the exact count of b-eautiful integers equals
+  N_b = 1 + | R ∩ [ceil(√b), b − 2] |,
+  where the “+1” accounts for the class r = 0 via s = b − 1.
+
+### Numerical Results:
+- Necessary and sufficient condition: n is b-eautiful ⇔ there exists an integer s with
+  s ∈ [ceil(√b), b − 1] and s(s − 1) ≡ 0 mod (b − 1).
+- Number of solution residue classes modulo b − 1: 2^{ω(b − 1)}.
+- Exact counting framework:
+  N_b = #{ s ∈ [ceil(√b), b − 1] : s(s − 1) ≡ 0 mod (b − 1) }
+      = 1 + |{ r ∈ {0,1,…,b−2} : r ∈ R and r ≥ ceil(√b) }|,
+  where R is the set of 2^{ω(b−1)} solution classes modulo b − 1.
+----END MESSAGE----
+
+C0004 say to All: ### Calculations: 
+- Let m = b − 1 and s = √n. Two-digit in base b implies s ∈ [ceil(√b), b−1] = [ceil(√(m+1)), m].
+- The condition x + y = s with n = s^2 = xb + y gives x = (s^2 − s)/(b − 1), so we need m | s(s − 1). 
+- The number of solutions modulo m of s(s − 1) ≡ 0 (mod m) is 2^{ω(m)}, where ω(m) is the number of distinct prime factors of m.
+- Since the interval length is less than m, the number of valid s is at most 2^{ω(m)}. To have > 10 solutions, need 2^{ω(m)} ≥ 11 ⇒ ω(m) ≥ 4.
+- The smallest m with ω(m) = 4 is m = 2·3·5·7 = 210, so the minimal candidate is b = m + 1 = 211.
+- For b = 211: m = 210, R = 2^{ω(m)} = 16. S0 = ceil(√211) = 15. Among residues 0 ≤ r ≤ 14 that satisfy r ≡ 0 or 1 mod 2,3,5,7, only r = 1 qualifies (r = 0 corresponds to s = m, which is included). Hence excluded count is 1, giving 16 − 1 = 15 > 10.
+- For any m < 210, ω(m) ≤ 3, so R ≤ 8, which cannot exceed 10.
+
+### Numerical Results: 211
+----END MESSAGE----
+
+C0002 say to All: ### Logical Reasoning:
+- A two-digit base-b number has the form n = xb + y with 1 ≤ x ≤ b−1, 0 ≤ y ≤ b−1. If n is b-eautiful, then x + y = s = √n is an integer, and n = s^2 = xb + y.
+- Eliminating x, y via s gives y = s(b − s)/(b − 1). Let m = b − 1. Then y is an integer iff m | s(b − s). This is equivalent to m | (s^2 − s) = s(s − 1).
+- For two-digit constraint: since s^2 = n < b^2, we need s ≤ b − 1 = m; and since n ≥ b, we need s ≥ ⌈√b⌉ = ⌈√(m + 1)⌉. Also x = (s^2 − s)/m must be ≥ 1, which excludes s = 1; but s ≥ ⌈√(m + 1)⌉ ≥ 2 already excludes s = 1.
+- The number of solutions to s(s−1) ≡ 0 (mod m) in {1, 2, ..., m} equals 2^{ω(m)}, where ω(m) is the number of distinct prime factors of m. This follows since for each prime power p^e ∥ m, s ≡ 0 or 1 (mod p^e), and these conditions are independent by CRT.
+- Valid b-eautiful integers correspond to those solutions with s ≥ L = ⌈√(m + 1)⌉. Hence the count is 2^{ω(m)} minus the number T of such solutions with s < L.
+
+To have more than 10 b-eautiful integers, we need 2^{ω(m)} − T ≥ 11. Since 2^3 = 8 < 11, we must have ω(m) ≥ 4. The smallest m with ω(m) = 4 is 2·3·5·7 = 210, giving b = m + 1 = 211.
+
+For m = 210, L = ⌈√211⌉ = 15. We must count T, the number of s ∈ {1, ..., 14} with s ≡ 0 or 1 modulo each of 2, 3, 5, 7. Checking s < 15 shows the only solution is s = 1. Therefore T = 1, and the number of valid s is 2^{4} − 1 = 16 − 1 = 15 > 10.
+
+For any m < 210, ω(m) ≤ 3, so the total number of solutions is ≤ 8 and after the lower bound it is ≤ 7 < 11. Thus no smaller base works.
+
+Therefore, the least base is b = 211.
+
+### Proof Structure:
+1. Set up: Let n = xb + y, with x + y = s = √n, and derive y = s(b − s)/(b − 1).
+2. Congruence condition: Equivalently, m = b − 1 divides s(s − 1).
+3. Range for s: s ∈ [⌈√(m + 1)⌉, m] ensures two-digit and positivity constraints; s = 1 excluded automatically by the lower bound.
+4. Counting solutions: Exactly 2^{ω(m)} solutions in [1, m] via CRT, one for each choice s ≡ 0 or 1 modulo p^e for each distinct prime p^e ∥ m.
+5. Minimality logic: To exceed 10, need ω(m) ≥ 4. Smallest such m is 210, yielding b = 211.
+6. Verification for m = 210: With L = 15, only s = 1 lies below L among the 16 classes, so 15 valid s remain; hence > 10 b-eautiful integers.
+7. Conclude minimal base: b = 211.
+----END MESSAGE----
+
+C0001 say to All: ### Error Analysis:
+- The reduction to s^2 ≡ s (mod b−1) is correct, and deriving digit formulas d1 = s(s−1)/(b−1), d0 = s(b−s)/(b−1) is valid. However, the necessary s-range must be explicitly s ∈ [ceil(√b), b−1], not up to b, since s=b would give n=b^2 which is three digits in base b.
+- Counting solutions via residues modulo m=b−1: the number of residue classes satisfying s(s−1)≡0 (mod m) is 2^ω(m), where ω(m) is the number of distinct prime factors of m. Since our interval [ceil(√b), b−1] fits strictly within a single period of length m (indeed length ≤ m−1 for b≥3), at least the residue class s≡1 (mod m) is always missed. Hence the maximum possible count is ≤ 2^ω−1. Therefore, having more than 10 solutions requires ω≥4; ω≤3 cannot suffice.
+- Minimal m with ω(m)≥4 is 210=2·3·5·7, so minimal b is 211. One must still verify the count exceeds 10 for b=211.
+
+### Corrections:
+- Use the correct s-range: s ∈ [ceil(√b), b−1].
+- Justify necessity: In any case, count ≤ 2^ω(b−1)−1, so ω≥4 is necessary for >10 solutions.
+- For b=211 (m=210, ω=4), there are exactly 2^4=16 solution classes modulo 210. The count in [15,210] equals 16 minus the number of solution residues in {1,…,14} (with residue 0 accounted by s=210). Checking 1…14 shows only 1 is valid, so count = 16−1 = 15 > 10.
+- Therefore, the least base with more than ten b-eautiful integers is 211.
+----END MESSAGE----
+
+C0005 say to All: ### Solution Verification: 
+Let n be two-digit in base b, so n = ab + c with 1 ≤ a ≤ b−1 and 0 ≤ c ≤ b−1. The condition a + c = √n implies n = s^2 with s = a + c. Using ab + c = s^2 and a = s − c gives c = s(b − s)/(b − 1), so c is an integer iff (b − 1) | s(s − 1). Also, two-digit forces s ∈ [ceil(√b), b − 1]. Let m = b − 1. Then the count of b-eautiful integers equals the number of s ∈ [ceil(√(m + 1)), m] with m | s(s − 1).
+
+For m = ∏ p_i^{e_i}, the congruence s(s − 1) ≡ 0 mod m has exactly 2^{ω(m)} solutions modulo m (one choice per prime power whether it divides s or s − 1). Hence in 1..m there are 2^{ω(m)} solutions. We need more than 10 solutions in the interval s ≥ ceil(√(m + 1)). Since 2^{ω(m)} ≤ 8 when ω(m) ≤ 3, no m with ω(m) ≤ 3 can work.
+
+The smallest m with ω(m) ≥ 4 is m = 2·3·5·7 = 210, giving b = 211. For m = 210, there are 2^4 = 16 solutions in 1..210. Checking s = 1..14, only s = 1 satisfies 210 | s(s − 1); thus exactly one solution is excluded by the lower bound s ≥ ceil(√211) = 15. Therefore, the number of valid s is 16 − 1 = 15 > 10. No smaller b can yield >10 since ω(b − 1) ≤ 3 for b − 1 < 210.
+
+Thus the least base is b = 211.
+
+### Correctness Confirmation: 211
+----END MESSAGE----
+
